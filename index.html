@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج محفظة مرابحة لشركة روابط</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            background-color: #F7F9F9; 
+            color: #37474F; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1rem;
+            overflow-x: hidden; 
+        }
+
+        .presentation-container {
+            width: 100%;
+            max-width: 1000px; 
+            background-color: #ffffff;
+            border-radius: 12px; 
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); 
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 2rem);
+        }
+
+        .slide {
+            display: none; 
+            padding: 30px 40px; 
+            min-height: 0;
+            flex-grow: 1;
+            box-sizing: border-box;
+            animation: fadeIn 0.4s ease-in-out;
+            overflow-y: auto; 
+        }
+
+        .slide.active {
+            display: flex; 
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide-title {
+            font-size: 2.0rem;
+            font-weight: 600; 
+            color: #006A71; 
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .slide-subtitle {
+            font-size: 1.4rem;
+            font-weight: 500; 
+            color: #004B4F; 
+            margin-bottom: 25px; 
+            text-align: center;
+        }
+
+        .slide-content {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .slide-content h2 {
+            font-size: 1.8rem; 
+            font-weight: 600; 
+            color: #006A71;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 8px; 
+            border-bottom: 2px solid #4DB6AC; 
+            text-align: center;
+        }
+
+        .slide-content p, .slide-content ul:not(.funding-details-infographic ul) {
+            font-size: 1.05rem; 
+            line-height: 1.75;
+            color: #37474F; 
+            margin-bottom: 15px;
+        }
+
+        .slide-content ul:not(.funding-details-infographic ul) {
+            list-style-position: inside;
+            padding-right: 10px; 
+        }
+         .slide-content ul:not(.funding-details-infographic ul) li {
+            margin-bottom: 10px;
+            padding-right: 15px;
+            position: relative;
+        }
+        .slide-content ul:not(.funding-details-infographic ul) li::before {
+            content: "•"; 
+            color: #4DB6AC; 
+            font-weight: bold;
+            display: inline-block; 
+            position: absolute;
+            right: -5px;
+            top: 2px; 
+        }
+         .slide-content ul:not(.funding-details-infographic ul) ul li::before { 
+            content: "-"; 
+            color: #006A71; 
+            right: -10px; 
+            font-weight: normal;
+         }
+
+        .compact-infographic-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .compact-infographic-step {
+            background-color: #F8F9FA;
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid #E0F2F1; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            text-align: right; 
+        }
+        .compact-infographic-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #004B4F; 
+            margin-bottom: 6px;
+        }
+        .compact-infographic-step p {
+            font-size: 0.9rem; 
+            line-height: 1.5;
+            color: #546E7A; 
+            margin-bottom: 0;
+        }
+
+        /* Styles for Slide 7 Infographic - Made more compact */
+        .funding-details-infographic {
+            display: grid; /* Changed to grid for horizontal layout on larger screens */
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 20px; 
+            margin-top: 25px; /* Adjusted margin */
+        }
+        .detail-block {
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            padding: 20px; /* Slightly reduced padding */
+            border: 1px solid #E0F2F1;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column; /* Stack icon and text vertically within each block */
+            align-items: center; /* Center items within the block */
+            text-align: center; /* Center text within the block */
+        }
+        .detail-block .icon-container {
+            font-size: 1.8rem; /* Slightly reduced icon size */
+            color: #006A71; 
+            background-color: #E0F2F1; 
+            width: 55px; /* Adjusted size */
+            height: 55px; /* Adjusted size */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px; /* Space between icon and text */
+        }
+        .detail-block .text-content h3 {
+            font-size: 1.1rem; /* Slightly reduced title size */
+            font-weight: 600;
+            color: #004B4F;
+            margin-bottom: 8px; /* Adjusted margin */
+        }
+        .detail-block .text-content p {
+            font-size: 0.95rem; /* Slightly reduced text size */
+            line-height: 1.6;
+            color: #37474F;
+            margin-bottom: 5px; 
+        }
+         .detail-block .text-content p strong {
+            color: #006A71;
+        }
+        .detail-block .text-content .funding-range span {
+            display: block; 
+            margin-bottom: 3px; /* Reduced margin */
+            font-size: 0.95rem; /* Slightly reduced text size */
+        }
+        .detail-block .text-content .funding-range span strong {
+            font-weight: 600;
+        }
+
+
+        .navigation-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px; 
+            background-color: #FFFFFF; 
+            border-top: 1px solid #E0E0E0; 
+            flex-shrink: 0;
+        }
+
+        .nav-button { 
+            background-color: #006A71; 
+            color: white;
+            padding: 10px 22px; 
+            border: none;
+            border-radius: 6px; 
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500; 
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .nav-button:hover {
+            background-color: #004B4F; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.07);
+            transform: translateY(-1px);
+        }
+        .nav-button:active {
+            transform: translateY(0px) scale(0.99);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .nav-button:disabled {
+            background-color: #B0BEC5; 
+            color: #78909C;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        #slideCounter {
+            font-size: 0.9rem;
+            color: #546E7A; 
+        }
+
+        .title-slide {
+            background-color: #006A71; 
+            color: #ffffff;
+            text-align: center;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        .title-slide-logo {
+            max-height: 85px;
+            width: auto;
+            margin-bottom: 35px;
+        }
+        .title-slide .slide-title {
+            color: #ffffff;
+            text-shadow: none; 
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .title-slide .slide-subtitle {
+            color: #B2DFDB;
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            max-width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .title-slide .decorative-line {
+            width: 80px;
+            height: 3px;
+            background-color: #B2DFDB;
+            margin: 0 auto 30px auto;
+            border-radius: 2px;
+        }
+        .title-slide .company-name {
+            font-size: 1.2rem; 
+            font-weight: 400;
+            margin-top: 20px;
+            color: #E0F2F1;
+        }
+        
+        @media (max-width: 768px) {
+            .presentation-container {
+                 height: auto;
+            }
+            .slide {
+                padding: 25px 30px;
+                max-height: none;
+            }
+            .slide-title {
+                font-size: 1.8rem;
+            }
+            .slide-subtitle {
+                font-size: 1.3rem;
+            }
+            .title-slide .slide-title {
+                font-size: 2.4rem;
+            }
+            .title-slide .slide-subtitle {
+                font-size: 1.4rem;
+                max-width: 85%;
+            }
+            .title-slide-logo {
+                max-height: 70px;
+                margin-bottom: 30px;
+            }
+            .slide-content h2 {
+                font-size: 1.7rem;
+            }
+            .slide-content p, .slide-content ul:not(.funding-details-infographic ul) {
+                font-size: 1rem;
+            }
+            .navigation-controls {
+                padding: 12px 20px;
+            }
+            .nav-button {
+                padding: 9px 18px;
+                font-size: 0.9rem;
+            }
+            .compact-infographic-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .funding-details-infographic { /* Stack to 1 column on smaller screens */
+                grid-template-columns: 1fr;
+                gap: 20px; /* Adjust gap for stacked layout */
+            }
+            .detail-block { 
+                /* No change needed here, already flex-column and centered */
+            }
+        }
+         @media (max-width: 480px) {
+            .slide {
+                padding: 20px 20px;
+            }
+             .slide-title {
+                font-size: 1.6rem;
+            }
+            .slide-subtitle {
+                font-size: 1.2rem;
+            }
+            .title-slide .slide-title {
+                font-size: 2.0rem;
+            }
+            .title-slide .slide-subtitle {
+                font-size: 1.2rem;
+                 max-width: 90%;
+            }
+            .title-slide-logo {
+                max-height: 60px;
+                margin-bottom: 25px;
+            }
+             .slide-content h2 {
+                font-size: 1.5rem;
+            }
+            .slide-content p, .slide-content ul:not(.funding-details-infographic ul) {
+                font-size: 0.9rem;
+            }
+             .compact-infographic-step h3 {
+                font-size: 1.05rem;
+             }
+             .compact-infographic-step p {
+                font-size: 0.85rem;
+             }
+             .detail-block .icon-container {
+                font-size: 1.6rem;
+                min-width: 50px;
+                width: 50px; /* Ensure consistency */
+                height: 50px;
+             }
+             .detail-block .text-content h3 {
+                font-size: 1.05rem; /* Adjusted for very small screens */
+             }
+             .detail-block .text-content p, .detail-block .text-content .funding-range span {
+                font-size: 0.85rem; /* Adjusted for very small screens */
+             }
+         }
+
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container">
+        
+        <main id="slidesArea" style="display: flex; flex-direction: column; flex-grow: 1; overflow: hidden;">
+            <section class="slide active title-slide">
+                <img src="https://i.ibb.co/HT1k3MNK/B.png" alt="شعار روابط" class="title-slide-logo">
+                <h1 class="slide-title">نموذج محفظة مرابحة</h1>
+                <p class="slide-subtitle">لتمويل شركة روابط لتجارة الكيماويات</p>
+                <div class="decorative-line"></div>
+                <p class="company-name">مقدمة من: شركة روابط</p>
+            </section>
+
+            <section class="slide">
+                <div class="slide-content">
+                    <h2>مقدمة</h2>
+                    <p>يهدف هذا المستند إلى عرض نموذج استثماري مبتكر لتمويل عمليات شركة "روابط"، وهي شركة متخصصة في تجارة الكيماويات. يعتمد هذا النموذج على إنشاء محفظة مرابحة تهدف إلى تحقيق عوائد مجزية للمستثمرين من خلال تمويل شراء وبيع المنتجات الكيماوية بنظام المرابحة، وذلك بدون الدخول في شراكة مباشرة في رأسمال شركة "روابط".</p>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="slide-content">
+                    <h2>عن شركة روابط</h2>
+                    <p>شركة "روابط" هي شركة عاملة في قطاع تجارة وتوزيع المواد الكيماوية، وتتمتع بفهم عميق للسوق واحتياجاته. تسعى الشركة لتوسيع نطاق عملياتها وزيادة حصتها السوقية، وتحتاج إلى حلول تمويل مرنة وفعالة لدعم نموها.</p>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="slide-content">
+                    <h2>فكرة محفظة المرابحة المقترحة</h2>
+                    <p>تقوم فكرة المحفظة على جمع أموال من المستثمرين لاستخدامها في شراء كميات كبيرة من المنتجات الكيماوية التي تحتاجها شركة "روابط" بشكل دوري. بعد ذلك، تقوم المحفظة ببيع هذه المنتجات لشركة "روابط" بنظام المرابحة (بيع بالتكلفة مع إضافة هامش ربح متفق عليه)، على أن يتم السداد من قبل شركة "روابط" خلال فترة زمنية محددة (شهر إلى ثلاثة أشهر).</p>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="slide-content">
+                    <h2>آلية عمل المحفظة</h2>
+                    <div class="compact-infographic-container">
+                        <div class="compact-infographic-step">
+                            <h3>1. تأسيس وجمع الأموال</h3>
+                            <p>دعوة المستثمرين للمساهمة في المحفظة الاستثمارية المخصصة لعمليات المرابحة.</p>
+                        </div>
+                        <div class="compact-infographic-step">
+                            <h3>2. تحديد الاحتياجات</h3>
+                            <p>تقوم "روابط" بتحديد أنواع وكميات المواد الكيماوية المطلوبة لعملياتها التجارية.</p>
+                        </div>
+                        <div class="compact-infographic-step">
+                            <h3>3. الشراء بواسطة المحفظة</h3>
+                            <p>إدارة المحفظة تشتري المواد الكيماوية بكميات كبيرة، وتصبح مملوكة للمحفظة.</p>
+                        </div>
+                        <div class="compact-infographic-step">
+                            <h3>4. إبرام عقد المرابحة</h3>
+                            <p>المحفظة تبيع المواد لـ"روابط" بعقد يحدد التكلفة وهامش الربح (4%-13%).</p>
+                        </div>
+                        <div class="compact-infographic-step">
+                            <h3>5. التسليم والسداد الآجل</h3>
+                            <p>"روابط" تستلم البضاعة وتلتزم بالسداد خلال (1-3 أشهر).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="slide">
+                <div class="slide-content">
+                    <h2>هيكل التمويل الأساسي والعائد المتوقع</h2>
+                    <ul>
+                        <li><strong>نوع التمويل:</strong> تمويل تجاري بصيغة المرابحة (متوافق مع الشريعة الإسلامية).</li>
+                        <li><strong>طبيعة الاستثمار:</strong> استثمار في عمليات تجارية محددة وقصيرة الأجل.</li>
+                        <li><strong>هامش الربح للمحفظة:</strong> يتراوح بين 4% إلى 13% لكل معاملة مرابحة.</li>
+                        <li><strong>مدة المعاملة:</strong> من شهر إلى 3 أشهر.</li>
+                        <li><strong>دورية التمويل:</strong> يمكن إعادة استثمار الأموال في معاملات جديدة بعد انتهاء كل دورة.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="slide-content">
+                    <h2>تفاصيل جولة التمويل الحالية</h2>
+                    <div class="funding-details-infographic">
+                        <div class="detail-block">
+                            <div class="icon-container"><i class="fas fa-calendar-alt"></i></div>
+                            <div class="text-content">
+                                <h3>مدة الجولة</h3>
+                                <p>حتى <strong>30 يونيو 2025</strong>.</p>
+                            </div>
+                        </div>
+                        <div class="detail-block">
+                            <div class="icon-container"><i class="fas fa-coins"></i></div>
+                            <div class="text-content">
+                                <h3>حجم التمويل</h3>
+                                <div class="funding-range">
+                                    <span>الأدنى: <strong>1 مليون ج.م</strong></span>
+                                    <span>الأقصى: <strong>2 مليون ج.م</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-block">
+                            <div class="icon-container"><i class="fas fa-shield-alt"></i></div>
+                            <div class="text-content">
+                                <h3>سياسة الرد</h3>
+                                <p>في حال عدم الوصول للحد الأدنى، يتم رد المبالغ للمستثمرين.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="slide-content">
+                    <h2>سياسة توزيع الأرباح وإعادة الاستثمار</h2>
+                    <ul>
+                        <li>يتم توزيع 3% من أصل رأس المال المستثمر بشكل ربع سنوي (كل 3 أشهر) تحت حساب الأرباح.</li>
+                        <li>تتم التسوية النهائية للأرباح في نهاية العام المالي.</li>
+                        <li>يتم توزيع ما نسبته 60% كحد أقصى من صافي الأرباح المحققة على المستثمرين.</li>
+                        <li>يتم احتجاز النسبة المتبقية من الأرباح (40% على الأقل) لزيادة قيمة رأس مال المستثمر للعام التالي.</li>
+                        <li>في حالة القيام بجولة تمويلية جديدة، يتم زيادة رأس مال المحفظة بالأرباح المحتجزة بالإضافة إلى الاستثمارات الجديدة.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="slide-content">
+                    <h2>مزايا الاستثمار (1/2)</h2>
+                    <ul>
+                        <li><strong>توافق مع الشريعة الإسلامية:</strong> نموذج المرابحة يعتبر من صيغ التمويل الإسلامي المقبولة.</li>
+                        <li><strong>عوائد مجزية محتملة:</strong> هامش ربح جذاب يتراوح بين 4% و 13% للمعاملة الواحدة خلال فترة قصيرة، بالإضافة إلى سياسة توزيع أرباح دورية.</li>
+                        <li><strong>مخاطر مدروسة:</strong> الاستثمار مرتبط بأصول ملموسة (مواد كيماوية) وعقود بيع واضحة.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="slide-content">
+                    <h2>مزايا الاستثمار (2/2)</h2>
+                    <ul>
+                        <li><strong>دورة استثمار قصيرة:</strong> تتيح للمستثمر رؤية عوائد استثماره خلال فترة تتراوح من شهر إلى ثلاثة أشهر.</li>
+                        <li><strong>دعم قطاع حقيقي:</strong> المساهمة في تمويل شركة عاملة في قطاع تجاري حيوي.</li>
+                        <li><strong>الشفافية:</strong> وضوح آلية العمل وتحديد الربح مسبقًا في كل معاملة، بالإضافة إلى سياسة واضحة لتوزيع الأرباح.</li>
+                        <li><strong>عدم الدخول في شراكة مباشرة:</strong> تمويل لـ"روابط" دون تنازل عن حصص ملكية، وفرصة استثمارية محددة للمستثمر.</li>
+                        <li><strong>نمو رأس المال المستثمر:</strong> من خلال احتجاز جزء من الأرباح وإعادة استثمارها.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="slide-content">
+                    <h2>إدارة المحفظة والحوكمة</h2>
+                    <p>سيتم تحديد مدير للمحفظة يكون مسؤولاً عن:</p>
+                    <ul>
+                        <li>إدارة أموال المستثمرين.</li>
+                        <li>تنفيذ عمليات الشراء بناءً على طلبات شركة روابط.</li>
+                        <li>إبرام عقود المرابحة مع شركة روابط.</li>
+                        <li>متابعة التحصيل من شركة روابط.</li>
+                        <li>توزيع الأرباح على المستثمرين بشفافية وفقًا للسياسة المعتمدة.</li>
+                        <li>تقديم تقارير دورية للمستثمرين عن أداء المحفظة والوضع المالي.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="slide-content">
+                    <h2>المخاطر المحتملة</h2>
+                    <ul>
+                        <li><strong>مخاطر الائتمان:</strong> تأخر أو تعثر شركة "روابط" في السداد (يمكن التخفيف بدراسة ائتمانية قوية و/أو ضمانات).</li>
+                        <li><strong>مخاطر السوق:</strong> تقلبات أسعار المواد الكيماوية (يتم تثبيت سعر البيع في عقد المرابحة).</li>
+                        <li><strong>مخاطر تشغيلية:</strong> متعلقة بإدارة المحفظة وعمليات الشراء والتخزين (إذا كانت المحفظة ستتولى التخزين).</li>
+                        <li><strong>مخاطر السيولة:</strong> قد تكون هناك صعوبة في تسييل الاستثمار قبل نهاية دورة المرابحة أو المدة المتفق عليها.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="slide">
+                <div class="slide-content">
+                    <h2>دعوة للاستثمار</h2>
+                    <p>ندعو المستثمرين المهتمين بالاستثمار المتوافق مع الشريعة الإسلامية والذي يحقق عوائد جيدة خلال فترات قصيرة، مع فرصة لنمو رأس المال، إلى النظر في فرصة المساهمة في محفظة المرابحة لتمويل شركة "روابط".</p>
+                    <p>نحن على استعداد لتقديم المزيد من التفاصيل والإجابة على استفساراتكم.</p>
+                    <p class="mt-6 font-semibold">للتواصل والاستفسار: <br> [يتم إضافة معلومات الاتصال هنا]</p>
+                </div>
+            </section>
+            
+        </main>
+
+        <footer class="navigation-controls">
+            <button id="prevButton" class="nav-button">السابق</button>
+            <span id="slideCounter"></span>
+            <button id="nextButton" class="nav-button">التالي</button>
+        </footer>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('#slidesArea > .slide'); 
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+        const slideCounter = document.getElementById('slideCounter');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            currentSlide = index;
+            updateNavButtons();
+            updateSlideCounter();
+        }
+
+        function updateNavButtons() {
+            prevButton.disabled = currentSlide === 0;
+            nextButton.disabled = currentSlide === slides.length - 1;
+        }
+
+        function updateSlideCounter() {
+            slideCounter.textContent = `شريحة ${currentSlide + 1} من ${slides.length}`;
+        }
+
+        prevButton.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentSlide < slides.length - 1) {
+                showSlide(currentSlide + 1);
+            }
+        });
+        
+        document.addEventListener('keydown', (event) => {
+            if (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+                return; 
+            }
+            if (event.key === 'ArrowRight' || event.key === ' ') { 
+                 if (currentSlide < slides.length - 1) {
+                    showSlide(currentSlide + 1);
+                }
+            } else if (event.key === 'ArrowLeft') { 
+                if (currentSlide > 0) {
+                    showSlide(currentSlide - 1);
+                }
+            }
+        });
+
+        showSlide(0);
+    </script>
+
+</body>
+</html>

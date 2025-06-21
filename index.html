@@ -225,36 +225,6 @@
             text-align: right;
         }
         
-        /* --- List Styling --- */
-        ul {
-            list-style: none;
-            padding: 0; 
-            max-width: 800px;
-        }
-        ul li {
-            font-size: 1.05rem;
-            line-height: 1.75;
-            margin-bottom: 1rem;
-            padding-right: 2.25rem;
-            position: relative;
-        }
-        ul li::before {
-            content: "✓"; 
-            color: #FFFFFF;
-            background-color: #009688;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            position: absolute;
-            right: 0;
-            top: 2px;
-            font-size: 0.9rem;
-        }
-
         /* --- Progress Bar --- */
         .progress-bar-wrapper {
             margin-top: 3rem;
@@ -663,15 +633,27 @@
         </section>
 
         <!-- Section 5: Dividend Policy -->
-        <section class="section">
+        <section class="section" id="dividend-policy-section">
             <div class="section-content-wrapper">
                 <h2 class="section-title">سياسة الأرباح ونمو رأس المال</h2>
                 <p class="section-description">نهدف إلى تحقيق التوازن بين العوائد الدورية والنمو طويل الأمد لرأس المال المستثمر.</p>
-                 <ul>
-                    <li>توزيع <strong>3%</strong> من أصل رأس المال بشكل ربع سنوي تحت حساب الأرباح.</li>
-                    <li>توزيع ما يصل إلى <strong>60%</strong> من صافي الأرباح المحققة على المستثمرين سنوياً.</li>
-                    <li>إعادة استثمار <strong>40%</strong> من الأرباح (على الأقل) لزيادة قيمة رأس مالك للعام التالي.</li>
-                </ul>
+                 <div class="card-grid">
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-calendar-alt"></i></div>
+                        <h3>توزيعات ربع سنوية</h3>
+                        <p>توزيع <strong>3%</strong> من أصل رأس المال بشكل ربع سنوي تحت حساب الأرباح لضمان تدفق نقدي دوري.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-money-bill-wave"></i></div>
+                        <h3>توزيعات سنوية</h3>
+                        <p>توزيع ما يصل إلى <strong>60%</strong> من صافي الأرباح المحققة على المستثمرين في نهاية العام المالي.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-chart-pie"></i></div>
+                        <h3>نمو رأس المال</h3>
+                        <p>إعادة استثمار <strong>40%</strong> من الأرباح (على الأقل) لزيادة قيمة رأس مالك للعام التالي وتعظيم العوائد.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -680,12 +662,28 @@
              <div class="section-content-wrapper">
                 <h2 class="section-title">إدارة المخاطر وحماية استثمارك</h2>
                 <p class="section-description">نتبع استراتيجيات محكمة لتقليل المخاطر إلى أقصى درجة ممكنة.</p>
-                 <ul>
-                    <li><strong>ضمان بالأصول:</strong> استثمارك مغطى بقيمة البضاعة المشتراة.</li>
-                    <li><strong>لا مخاطر تقلب أسعار:</strong> يتم الشراء بناءً على تعهد شراء بسعر محدد مسبقاً.</li>
-                    <li><strong>لا تكاليف تشغيلية:</strong> المحفظة لا تتحمل أي تكاليف تخزين أو تشغيل.</li>
-                    <li><strong>إدارة سيولة ذكية:</strong> نحتفظ بنسبة 20% كسيولة نقدية لضمان توزيعات الأرباح واقتناص الفرص.</li>
-                </ul>
+                 <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <h3>ضمان بالأصول</h3>
+                        <p>استثمارك مغطى بقيمة البضاعة المشتراة.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-tags"></i></div>
+                        <h3>لا مخاطر تقلب أسعار</h3>
+                        <p>يتم الشراء بناءً على تعهد شراء بسعر محدد مسبقاً.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><i class="fas fa-warehouse"></i></div>
+                        <h3>لا تكاليف تشغيلية</h3>
+                        <p>المحفظة لا تتحمل أي تكاليف تخزين أو تشغيل.</p>
+                    </div>
+                     <div class="card">
+                        <div class="icon"><i class="fas fa-hand-holding-water"></i></div>
+                        <h3>إدارة سيولة ذكية</h3>
+                        <p>نحتفظ بنسبة 20% كسيولة نقدية لضمان توزيعات الأرباح واقتناص الفرص.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -737,6 +735,7 @@
                 <ul>
                     <li><a href="#cycle-section">دورة الاستثمار</a></li>
                     <li><a href="#hero-section">ملخص الاستثمار</a></li>
+                    <li><a href="#dividend-policy-section">سياسة الأرباح</a></li>
                 </ul>
             </div>
             <div class="footer-col">

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محفظة السندات الاستثمارية | عائد مجزي في تمويل التجارة</title>
+    <title>محفظة Bonds Trade الاستثمارية | عائد مجزي في تمويل التجارة</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -252,8 +252,105 @@
             margin-top: 0.75rem;
         }
         
-        /* --- ROI Section --- */
-        .roi-grid {
+        /* --- ROI Calculator Section (Minimal) --- */
+        .roi-calculator-container {
+            background-color: #F7F9FA;
+            border-radius: 1.5rem;
+            padding: 3rem;
+            border: 1px solid #EAECEE;
+        }
+        .calculator-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            align-items: end;
+            margin-bottom: 2.5rem;
+        }
+        .input-group label {
+            display: block;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        .input-group input[type="text"] {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            border: 1px solid #CFD8DC;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: right;
+        }
+        .input-group .range-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+         .input-group .range-label span:last-child {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #006A71;
+         }
+        .input-group input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #CFD8DC;
+            border-radius: 5px;
+            outline: none;
+            direction: ltr;
+        }
+        .input-group input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #006A71;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .input-group input[type="range"]::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            background: #006A71;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .calculator-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #EAECEE;
+        }
+        .calculator-results .result-card {
+            text-align: center;
+        }
+        .calculator-results .result-card h3 {
+            font-size: 1rem;
+            color: #546E7A;
+            font-weight: 500;
+            margin: 0 0 0.5rem 0;
+        }
+        .calculator-results .result-card p {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #006A71;
+            margin: 0;
+        }
+         .calculator-results .result-card.total p {
+            color: #1A2E35;
+         }
+        .calculator-disclaimer {
+            font-size: 0.85rem;
+            color: #546E7A;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* --- ROI Chart Section --- */
+        .roi-chart-grid {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
             gap: 4rem;
@@ -425,7 +522,7 @@
         
         /* --- Responsive Design --- */
         @media (max-width: 992px) {
-            .hero-grid, .roi-grid { grid-template-columns: 1fr; gap: 3rem;}
+            .hero-grid, .roi-chart-grid { grid-template-columns: 1fr; gap: 3rem;}
             .hero-text, .roi-features { text-align: center; }
             .hero-text h1, .hero-text p { text-align: center; }
             .investment-snapshot { margin: 0 auto; transform: scale(1); }
@@ -445,7 +542,7 @@
             .hero-text h1 { font-size: 2.2rem; }
             .hero-text p { font-size: 1rem; }
             .card-grid { grid-template-columns: 1fr; }
-            .contact-section-wrapper {
+            .contact-section-wrapper, .roi-calculator-container {
                 grid-template-columns: 1fr;
                 gap: 3rem;
                 padding: 2.5rem 2rem;
@@ -462,7 +559,7 @@
     <!-- Fixed Header -->
     <header class="page-header">
         <div class="header-content">
-            <img src="https://i.ibb.co/QvWSCZft/bonds-logo-for-light-background.png" alt="شعار السندات" class="header-logo" onerror="this.onerror=null;this.src='https://placehold.co/150x45/FFFFFF/1A2E35?text=Bonds';">
+            <img src="https://i.ibb.co/QvWSCZft/bonds-logo-for-light-background.png" alt="شعار Bonds Trade" class="header-logo" onerror="this.onerror=null;this.src='https://placehold.co/150x45/FFFFFF/1A2E35?text=Bonds';">
             <a href="#contact-section" class="cta-button">ابدأ الاستثمار</a>
         </div>
     </header>
@@ -516,24 +613,24 @@
             </div>
         </section>
 
-        <!-- Section 2: Projected ROI -->
-        <section class="section" id="roi-section">
-            <div class="section-content-wrapper roi-grid">
+        <!-- Section 2: Static Growth Visualization -->
+        <section class="section" id="growth-projection-section">
+            <div class="section-content-wrapper roi-chart-grid">
                 <div class="roi-features">
-                    <h2 class="section-title">شاهد نمو استثمارك</h2>
+                    <h2 class="section-title">تصور النمو طويل الأمد</h2>
                     <p class="section-description">بفضل سياسة إعادة استثمار 40% من الأرباح، ينمو رأس مالك بشكل متسارع، مما يضاعف من عوائدك المستقبلية.</p>
                     <div class="feature-item">
                         <div class="icon"><i class="fas fa-layer-group"></i></div>
                         <div>
                             <h3>نمو رأس المال المركب</h3>
-                            <p>شاهد كيف يمكن لرأس مالك الأولي أن يتضاعف أكثر من 3 مرات خلال 7 سنوات بفضل الأرباح المحتجزة.</p>
+                            <p>شاهد كيف يمكن لرأس مالك الأولي أن يتضاعف أكثر من 2.5 مرة خلال 7 سنوات بفضل الأرباح المحتجزة.</p>
                         </div>
                     </div>
                     <div class="feature-item">
                         <div class="icon"><i class="fas fa-wallet"></i></div>
                         <div>
                             <h3>توزيعات نقدية مجزية</h3>
-                            <p>بالإضافة إلى نمو رأس المال، ستحقق عوائد نقدية موزعة تتجاوز 200% من استثمارك الأولي.</p>
+                            <p>بالإضافة إلى نمو رأس المال، ستحقق عوائد نقدية موزعة تتجاوز 130% من استثمارك الأولي.</p>
                         </div>
                     </div>
                 </div>
@@ -556,24 +653,24 @@
                         <text x="30" y="130" text-anchor="end" font-size="12" fill="#546E7A">200%</text>
                         <text x="30" y="67.5" text-anchor="end" font-size="12" fill="#546E7A">300%</text>
 
-                        <!-- Data points: Y value = 250 - (percentage * 225 / 300) -->
+                        <!-- Data points based on updated multipliers -->
                         <defs>
                             <linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
                                 <stop offset="0%" stop-color="#009688" stop-opacity="0.3"/>
                                 <stop offset="100%" stop-color="#006A71" stop-opacity="0"/>
                             </linearGradient>
                         </defs>
-                        <polyline points="55,232 125,214.75 195,194.5 265,170.5 335,141.25 405,107.5 475,67" fill="url(#chartGradient)"/>
-                        <polyline points="55,232 125,214.75 195,194.5 265,170.5 335,141.25 405,107.5 475,67" fill="none" stroke="#006A71" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="55,239.2 125,226.75 195,212.5 265,196.75 335,178 405,156.25 475,132.25" fill="url(#chartGradient)"/>
+                        <polyline points="55,239.2 125,226.75 195,212.5 265,196.75 335,178 405,156.25 475,132.25" fill="none" stroke="#006A71" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                         
                         <!-- Data circles -->
-                        <circle cx="55" cy="232" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
-                        <circle cx="125" cy="214.75" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
-                        <circle cx="195" cy="194.5" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
-                        <circle cx="265" cy="170.5" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
-                        <circle cx="335" cy="141.25" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
-                        <circle cx="405" cy="107.5" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
-                        <circle cx="475" cy="67" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
+                        <circle cx="55" cy="239.2" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
+                        <circle cx="125" cy="226.75" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
+                        <circle cx="195" cy="212.5" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
+                        <circle cx="265" cy="196.75" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
+                        <circle cx="335" cy="178" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
+                        <circle cx="405" cy="156.25" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
+                        <circle cx="475" cy="132.25" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
 
                         <!-- X-axis labels -->
                          <text x="55" y="270" text-anchor="middle" font-size="12" fill="#546E7A">س1</text>
@@ -587,22 +684,62 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Section 3: Projected ROI Calculator -->
+        <section class="section" id="roi-calculator-section">
+            <div class="section-content-wrapper">
+                 <h2 class="section-title">احسب عائد استثمارك المتوقع</h2>
+                 <p class="section-description">استخدم الحاسبة التفاعلية لترى كيف يمكن لاستثمارك أن ينمو. أدخل المبلغ الذي تود استثماره وحدد فترة الاستثمار لترى النتائج المتوقعة.</p>
+                 <div class="roi-calculator-container">
+                     <div class="calculator-controls">
+                        <div class="input-group">
+                            <label for="investmentAmount">مبلغ الاستثمار (ج.م)</label>
+                            <input type="text" id="investmentAmount" value="100,000" dir="ltr">
+                        </div>
+                        <div class="input-group">
+                            <div class="range-label">
+                                <label for="investmentPeriod">فترة الاستثمار</label>
+                                <span id="yearsLabel">1 سنوات</span>
+                            </div>
+                            <input type="range" id="investmentPeriod" min="1" max="7" value="1" step="1">
+                        </div>
+                    </div>
+                    <div class="calculator-results">
+                        <div class="result-card">
+                            <h3>إجمالي التوزيعات النقدية</h3>
+                            <p id="dividendsResult">12,652 ج.م</p>
+                        </div>
+                        <div class="result-card">
+                            <h3>قيمة الأسهم عند التخارج</h3>
+                            <p id="exitValueResult">114,434 ج.م</p>
+                        </div>
+                         <div class="result-card total">
+                            <h3>إجمالي العائد</h3>
+                            <p id="totalReturnResult">127,086 ج.م</p>
+                        </div>
+                    </div>
+                 </div>
+                 <p class="calculator-disclaimer">
+                    <strong>إخلاء مسؤولية:</strong> هذه الأرقام هي مجرد تقديرات استرشادية بناءً على توقعات الأداء. العائد الفعلي يعتمد على ظروف السوق الفعلية والفرص التجارية المتاحة عند التنفيذ.
+                 </p>
+            </div>
+        </section>
 
-        <!-- Section 3: How it works -->
+        <!-- Section 4: How it works -->
         <section class="section" id="cycle-section">
             <div class="section-content-wrapper">
                 <h2 class="section-title">دورة الاستثمار</h2>
                 <p class="section-description">نؤمن بالشفافية الكاملة. إليك كيف يتم استثمار أموالك خطوة بخطوة لتحقيق العوائد.</p>
                 <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-                    <div class="card"><div class="icon">1</div><h3>تحديد الصفقة</h3><p>تقوم "السندات" بتحديد المواد المطلوبة وكمياتها.</p></div>
+                    <div class="card"><div class="icon">1</div><h3>تحديد الصفقة</h3><p>تقوم "Bonds Trade" بتحديد المواد المطلوبة وكمياتها.</p></div>
                     <div class="card"><div class="icon">2</div><h3>الشراء</h3><p>المحفظة تشتري المواد وتتملكها بالكامل.</p></div>
-                    <div class="card"><div class="icon">3</div><h3>عقد المرابحة</h3><p>بيع المواد لـ"السندات" بهامش ربح متفق عليه.</p></div>
-                    <div class="card"><div class="icon">4</div><h3>تحقيق العائد</h3><p>"السندات" تسدد المبلغ مع الربح، وتوزع العوائد.</p></div>
+                    <div class="card"><div class="icon">3</div><h3>عقد المرابحة</h3><p>بيع المواد لـ"Bonds Trade" بهامش ربح متفق عليه.</p></div>
+                    <div class="card"><div class="icon">4</div><h3>تحقيق العائد</h3><p>"Bonds Trade" تسدد المبلغ مع الربح، وتوزع العوائد.</p></div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 4: Funding Details -->
+        <!-- Section 5: Funding Details -->
         <section class="section" id="funding-section">
             <div class="section-content-wrapper">
                 <h2 class="section-title">مؤشرات جولة التمويل الحالية</h2>
@@ -632,7 +769,7 @@
             </div>
         </section>
 
-        <!-- Section 5: Dividend Policy -->
+        <!-- Section 6: Dividend Policy -->
         <section class="section" id="dividend-policy-section">
             <div class="section-content-wrapper">
                 <h2 class="section-title">سياسة الأرباح ونمو رأس المال</h2>
@@ -657,7 +794,7 @@
             </div>
         </section>
 
-        <!-- Section 6: Risk Management -->
+        <!-- Section 7: Risk Management -->
         <section class="section" id="risk-section">
              <div class="section-content-wrapper">
                 <h2 class="section-title">إدارة المخاطر وحماية استثمارك</h2>
@@ -687,7 +824,7 @@
             </div>
         </section>
 
-        <!-- Section 7: Call to Invest -->
+        <!-- Section 8: Call to Invest -->
         <section class="section" id="contact-section">
             <div class="section-content-wrapper">
                  <h2 class="section-title">هل أنت مستعد لبدء الاستثمار؟</h2>
@@ -719,22 +856,22 @@
     <footer class="page-footer">
        <div class="footer-grid">
             <div class="footer-col">
-                <img src="https://i.ibb.co/C3Cx2w26/bonds-logo-for-dark-background.png" alt="شعار السندات" class="header-logo" style="height: 50px; margin-bottom: 1.5rem;" onerror="this.onerror=null;this.src='https://placehold.co/150x50/1A2E35/FFFFFF?text=Bonds';">
+                <img src="https://i.ibb.co/C3Cx2w26/bonds-logo-for-dark-background.png" alt="شعار Bonds Trade" class="header-logo" style="height: 50px; margin-bottom: 1.5rem;" onerror="this.onerror=null;this.src='https://placehold.co/150x50/1A2E35/FFFFFF?text=Bonds';">
                 <p style="max-width: 250px; line-height: 1.7; color: #B0BEC5;">فرصة استثمارية متوافقة مع الشريعة لتمويل التجارة وتحقيق عوائد مجزية.</p>
             </div>
             <div class="footer-col">
                 <h3>الفرصة</h3>
                 <ul>
-                    <li><a href="#roi-section">النمو المتوقع</a></li>
+                    <li><a href="#growth-projection-section">النمو المتوقع</a></li>
+                    <li><a href="#roi-calculator-section">حاسبة العائد</a></li>
                     <li><a href="#funding-section">جولة التمويل</a></li>
-                    <li><a href="#risk-section">إدارة المخاطر</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>النموذج</h3>
                 <ul>
                     <li><a href="#cycle-section">دورة الاستثمار</a></li>
-                    <li><a href="#hero-section">ملخص الاستثمار</a></li>
+                    <li><a href="#risk-section">إدارة المخاطر</a></li>
                     <li><a href="#dividend-policy-section">سياسة الأرباح</a></li>
                 </ul>
             </div>
@@ -746,9 +883,72 @@
             </div>
        </div>
        <div class="footer-bottom">
-            <p>&copy; 2025 السندات. جميع الحقوق محفوظة.</p>
+            <p>&copy; 2025 Bonds Trade. جميع الحقوق محفوظة.</p>
        </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // ROI Calculator Elements
+            const investmentAmountInput = document.getElementById('investmentAmount');
+            const investmentPeriodSlider = document.getElementById('investmentPeriod');
+            const yearsLabel = document.getElementById('yearsLabel');
+            const dividendsResult = document.getElementById('dividendsResult');
+            const exitValueResult = document.getElementById('exitValueResult');
+            const totalReturnResult = document.getElementById('totalReturnResult');
+
+            // Final, corrected projection data based on the latest spreadsheet.
+            // Index 0 represents Year 1.
+            const capitalMultipliers = [1.1443, 1.3095, 1.4985, 1.7149, 1.9624, 2.2456, 2.5698];
+            const cumulativeDividends = [0.1265, 0.2713, 0.4370, 0.6266, 0.8435, 1.0918, 1.3759];
+
+            function formatCurrency(value) {
+                // Format to whole number and add currency symbol
+                return new Intl.NumberFormat('ar-EG', { style: 'currency', currency: 'EGP', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
+            }
+
+            function calculateROI() {
+                // Sanitize and parse the input amount
+                let amount = parseFloat(investmentAmountInput.value.replace(/,/g, ''));
+                if (isNaN(amount) || amount < 0) {
+                    amount = 0;
+                }
+
+                const period = parseInt(investmentPeriodSlider.value); // 1 to 7
+                const index = period - 1; // 0 to 6 for array access
+
+                if (index >= 0 && index < capitalMultipliers.length) {
+                    const capitalMultiplier = capitalMultipliers[index];
+                    const dividendMultiplier = cumulativeDividends[index];
+
+                    const calculatedDividends = amount * dividendMultiplier;
+                    const calculatedExitValue = amount * capitalMultiplier;
+                    const totalReturn = calculatedDividends + calculatedExitValue;
+
+                    // Update UI
+                    dividendsResult.textContent = formatCurrency(calculatedDividends);
+                    exitValueResult.textContent = formatCurrency(calculatedExitValue);
+                    totalReturnResult.textContent = formatCurrency(totalReturn);
+                    yearsLabel.textContent = `${period} سنوات`;
+                }
+            }
+            
+            // Format input amount with commas on input
+            investmentAmountInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/,/g, '');
+                if (!isNaN(value) && value.length > 0) {
+                    e.target.value = new Intl.NumberFormat('en-US').format(value);
+                }
+                 calculateROI();
+            });
+
+            // Add event listeners
+            investmentPeriodSlider.addEventListener('input', calculateROI);
+            
+            // Initial calculation on page load
+            calculateROI();
+        });
+    </script>
 
 </body>
 </html>

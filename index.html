@@ -3,952 +3,640 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محفظة Bonds Trade الاستثمارية | عائد مجزي في تمويل التجارة</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>محفظة روابط للتجارة | استثمار تجاري حقيقي بمرابحة شرعية وعوائد دورية</title>
+    <meta name="description" content="محفظة استثمارية متوافقة مع الشريعة الإسلامية تابعة لشركة روابط للتجارة. تمويل تجارة خامات وبضائع ملموسة، دفعة نقدية 3% ربع سنوية وتسوية سنوية لنصف صافي الأرباح.">
+    <link rel="icon" type="image/png" href="bonds-trade-favicon-white-background.png">
+    
+    <!-- Google Fonts & Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <style>
-        /* --- Base & Typography --- */
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'IBM Plex Sans Arabic', sans-serif;
-            background-color: #FFFFFF; 
-            color: #1A2E35; 
-            margin: 0;
-            padding-top: 80px;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
-        /* --- Header --- */
-        .page-header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 80px;
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 2rem;
-            transition: background-color 0.3s ease;
-        }
-        .header-content {
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .header-logo { height: 45px; width: auto; }
-        .cta-button {
-             background-color: #1A2E35; 
-             color: white;
-             padding: 12px 28px; 
-             border: none;
-             border-radius: 8px; 
-             cursor: pointer;
-             font-size: 1rem;
-             font-weight: 600; 
-             transition: all 0.3s ease;
-        }
-        .cta-button:hover {
-             background-color: #006A71;
-             transform: translateY(-3px);
-             box-shadow: 0 4px 15px rgba(0, 75, 79, 0.2);
-        }
-
-        /* --- Section Styling --- */
-        .section {
-            width: 100%;
-            padding: 6rem 2rem;
-            box-sizing: border-box;
-        }
-        .section-content-wrapper {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        main > .section:nth-of-type(even):not(.hero-section) {
-             background-color: #F7F9FA;
-        }
-        .section-title {
-            font-size: 2.5rem; 
-            font-weight: 600; 
-            color: #1A2E35;
-            margin-bottom: 1.5rem;
-            text-align: right;
-        }
-        .section-description {
-            font-size: 1.1rem; 
-            line-height: 1.8;
-            color: #546E7A; 
-            margin-bottom: 3.5rem;
-            max-width: 750px;
-            text-align: right;
-        }
-
-        /* --- Hero Section --- */
-        .hero-section {
-            padding: 5rem 2rem 6rem 2rem;
-        }
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .hero-text h1 {
-            font-size: 3.2rem;
-            font-weight: 700;
-            line-height: 1.4;
-            color: #1A2E35;
-            margin-bottom: 1.5rem;
-        }
-        .hero-text h1 .highlight {
-            color: #006A71;
-        }
-        .hero-text p {
-            font-size: 1.1rem;
-            color: #546E7A;
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-        }
-        
-        /* --- Investment Snapshot Artifact --- */
-        .investment-snapshot {
-            background: #FFFFFF;
-            border-radius: 1.5rem;
-            padding: 2.5rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-            border: 1px solid #E8E8E8;
-            transform: scale(1.05);
-        }
-        .snapshot-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .snapshot-header h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1A2E35;
-        }
-        .snapshot-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-        .snapshot-item .icon {
-            font-size: 1.5rem;
-            color: #006A71;
-            background-color: #E0F2F1;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-left: 1.25rem;
-        }
-        .snapshot-item-text h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 0 0 0.25rem 0;
-        }
-        .snapshot-item-text p {
-            font-size: 0.95rem;
-            color: #546E7A;
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        /* --- Card & Grid Styling --- */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            width: 100%;
-        }
-        .card {
-            background-color: #FFFFFF;
-            border-radius: 12px;
-            padding: 2rem;
-            border: 1px solid #EAECEE;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
-        }
-        .card .icon {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #006A71;
-            background-color: #E0F2F1;
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-        .card h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #1A2E35;
-            margin-bottom: 0.75rem;
-            text-align: right;
-        }
-        .card p, .card .funding-range, .card .funding-value {
-            font-size: 1.1rem; 
-            line-height: 1.6;
-            color: #1A2E35;
-            margin: 0;
-            flex-grow: 1;
-            font-weight: 600;
-            text-align: right;
-        }
-        .card .funding-label {
-            font-size: 0.9rem;
-            color: #546E7A;
-            margin-bottom: 0.5rem;
-            text-align: right;
-        }
-        
-        /* --- Progress Bar --- */
-        .progress-bar-wrapper {
-            margin-top: 3rem;
-        }
-        .progress-bar-container {
-            background-color: #EAECEE;
-            border-radius: 10px;
-            height: 12px;
-            width: 100%;
-            overflow: hidden;
-            direction: ltr; /* Ensure progress bar fills from left to right */
-        }
-        .progress-bar {
-            background: linear-gradient(90deg, #009688, #006A71);
-            height: 100%;
-            border-radius: 10px;
-            transition: width 0.8s ease-in-out;
-        }
-        .progress-bar-text {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: #546E7A;
-            margin-top: 0.75rem;
-        }
-        
-        /* --- ROI Calculator Section (Minimal) --- */
-        .roi-calculator-container {
-            background-color: #F7F9FA;
-            border-radius: 1.5rem;
-            padding: 3rem;
-            border: 1px solid #EAECEE;
-        }
-        .calculator-controls {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            align-items: end;
-            margin-bottom: 2.5rem;
-        }
-        .input-group label {
-            display: block;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        .input-group input[type="text"] {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border-radius: 8px;
-            border: 1px solid #CFD8DC;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-align: right;
-        }
-        .input-group .range-label {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-         .input-group .range-label span:last-child {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #006A71;
-         }
-        .input-group input[type="range"] {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 8px;
-            background: #CFD8DC;
-            border-radius: 5px;
-            outline: none;
-            direction: ltr;
-        }
-        .input-group input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 24px;
-            height: 24px;
-            background: #006A71;
-            cursor: pointer;
-            border-radius: 50%;
-        }
-        .input-group input[type="range"]::-moz-range-thumb {
-            width: 24px;
-            height: 24px;
-            background: #006A71;
-            cursor: pointer;
-            border-radius: 50%;
-        }
-
-        .calculator-results {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid #EAECEE;
-        }
-        .calculator-results .result-card {
-            text-align: center;
-        }
-        .calculator-results .result-card h3 {
-            font-size: 1rem;
-            color: #546E7A;
-            font-weight: 500;
-            margin: 0 0 0.5rem 0;
-        }
-        .calculator-results .result-card p {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #006A71;
-            margin: 0;
-        }
-         .calculator-results .result-card.total p {
-            color: #1A2E35;
-         }
-        .calculator-disclaimer {
-            font-size: 0.85rem;
-            color: #546E7A;
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        /* --- ROI Chart Section --- */
-        .roi-chart-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .roi-features .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 2rem;
-        }
-         .roi-features .feature-item .icon {
-            font-size: 1.2rem;
-            color: #006A71;
-            background-color: #E0F2F1;
-            width: 45px;
-            height: 45px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-left: 1.25rem;
-        }
-        .roi-features .feature-item h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin: 0 0 0.5rem 0;
-        }
-        .roi-features .feature-item p {
-            font-size: 1rem;
-            color: #546E7A;
-            margin: 0;
-            line-height: 1.6;
-        }
-        .chart-card {
-            background: #FFFFFF;
-            border-radius: 1.5rem;
-            padding: 2.5rem;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.07);
-            border: 1px solid #E8E8E8;
-        }
-        .chart-header {
-             display: flex;
-             justify-content: space-between;
-             align-items: center;
-             margin-bottom: 2rem;
-        }
-         .chart-header h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-         }
-        .svg-chart {
-            width: 100%;
-            height: auto;
-        }
-        
-        /* --- New Contact Section --- */
-        .contact-section-wrapper {
-            background-color: #FFFFFF;
-            border-radius: 1.5rem;
-            padding: 4rem;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-            border: 1px solid #E8E8E8;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        .contact-profile {
-            text-align: center;
-        }
-        .contact-profile .avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background-color: #E0F2F1;
-            color: #006A71;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem auto;
-            font-size: 2.5rem;
-        }
-        .contact-profile h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #1A2E35;
-            margin-bottom: 0.5rem;
-        }
-        .contact-profile .title {
-            font-size: 1rem;
-            color: #546E7A;
-            margin-bottom: 2rem;
-        }
-        .contact-profile .phone-link {
-            display: inline-flex;
-            align-items: center;
-            background-color: transparent;
-            border: 1px solid #CFD8DC;
-            padding: 12px 30px;
-            border-radius: 8px;
-            font-weight: 600;
-            color: #1A2E35;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .contact-profile .phone-link .fas {
-            margin-left: 10px;
-        }
-        .contact-profile .phone-link:hover {
-            background-color: #006A71;
-            color: #FFFFFF;
-            border-color: #006A71;
-            transform: translateY(-2px);
-        }
-        .contact-divider {
-            width: 1px;
-            height: 150px;
-            background-color: #EAECEE;
-        }
-
-        /* --- Footer --- */
-        .page-footer {
-            padding: 4rem 2rem;
-            background-color: #1A2E35;
-            color: #CFD8DC;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: right;
-        }
-        .footer-col h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #FFFFFF;
-            margin-bottom: 1.5rem;
-        }
-        .footer-col ul {
-            padding: 0;
-            list-style: none;
-        }
-        .footer-col ul li {
-            margin-bottom: 1rem;
-            padding-right: 0;
-        }
-        .footer-col ul li::before {
-            display: none;
-        }
-        .footer-col ul li a {
-            color: #B0BEC5;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        .footer-col ul li a:hover {
-            color: #FFFFFF;
-        }
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 3rem auto 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid #37474F;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        /* --- Responsive Design --- */
-        @media (max-width: 992px) {
-            .hero-grid, .roi-chart-grid { grid-template-columns: 1fr; gap: 3rem;}
-            .hero-text, .roi-features { text-align: center; }
-            .hero-text h1, .hero-text p { text-align: center; }
-            .investment-snapshot { margin: 0 auto; transform: scale(1); }
-            .section-title, .section-description { text-align: center; max-width: 100%; }
-            .card h3, .card p, .card .funding-label { text-align: center; }
-            ul { margin: 3rem auto 0 auto; padding-right: 0;}
-            .roi-features .feature-item { flex-direction: column; align-items: center; text-align: center;}
-            .roi-features .feature-item .icon { margin-left: 0; margin-bottom: 1rem;}
-        }
-        @media (max-width: 768px) {
-            body { padding-top: 70px; }
-            .page-header { height: 70px; padding: 0 1rem; }
-            .header-logo { height: 40px; }
-            .cta-button { padding: 10px 20px; font-size: 0.9rem;}
-            .section { padding: 4rem 1.5rem; }
-            .section-title { font-size: 2rem; }
-            .hero-text h1 { font-size: 2.2rem; }
-            .hero-text p { font-size: 1rem; }
-            .card-grid { grid-template-columns: 1fr; }
-            .contact-section-wrapper, .roi-calculator-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                padding: 2.5rem 2rem;
-            }
-            .contact-divider {
-                display: none;
-            }
-            .footer-grid { text-align: center; }
-        }
-    </style>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Fixed Header -->
-    <header class="page-header">
-        <div class="header-content">
-            <img src="https://i.ibb.co/QvWSCZft/bonds-logo-for-light-background.png" alt="شعار Bonds Trade" class="header-logo" onerror="this.onerror=null;this.src='https://placehold.co/150x45/FFFFFF/1A2E35?text=Bonds';">
-            <a href="#contact-section" class="cta-button">ابدأ الاستثمار</a>
-        </div>
-    </header>
-
     <main>
-        <!-- Section 1: Hero -->
-        <section class="section hero-section" id="hero-section">
-            <div class="section-content-wrapper">
+        <!-- ==========================================================================
+             Section 1: Hero Section
+             ========================================================================== -->
+        <section class="hero-section" id="hero">
+            <div class="container">
+                <!-- Clean Brand Bar -->
+                <div class="brand-bar">
+                    <img src="bonds-trade-english-black.png" alt="شعار شركة روابط للتجارة Bonds Trade" class="brand-logo-main">
+                    <span class="brand-tagline-text">شركة روابط للتجارة | استثمار تجاري متوافق مع الشريعة الإسلامية</span>
+                </div>
+
                 <div class="hero-grid">
-                    <div class="hero-text">
-                        <h1>استثمر في التجارة الحقيقية. <br><span class="highlight">عوائد مجزية ودورة سريعة.</span></h1>
-                        <p>فرصة استثمارية متوافقة مع الشريعة، تتيح لك تمويل صفقات تجارية ملموسة في قطاع الكيماويات وتحقيق عوائد تنافسية خلال فترة قصيرة بدون الدخول في شراكة مباشرة.</p>
-                         <a href="#contact-section" class="cta-button">تواصل معنا الآن</a>
-                    </div>
-                    
-                    <!-- Investment Snapshot Artifact -->
-                    <div class="investment-snapshot">
-                        <div class="snapshot-header">
-                             <h2>ملخص الاستثمار</h2>
-                        </div>
-                        <div class="snapshot-item">
-                            <div class="icon"><i class="fas fa-chart-line"></i></div>
-                            <div class="snapshot-item-text">
-                                <h3>عائد متوقع مرتفع</h3>
-                                <p>هامش ربح صافي يتراوح بين <strong>4% إلى 13%</strong> لكل معاملة.</p>
-                            </div>
-                        </div>
-                        <div class="snapshot-item">
-                            <div class="icon"><i class="fas fa-hourglass-half"></i></div>
-                            <div class="snapshot-item-text">
-                                <h3>دورة استثمار قصيرة</h3>
-                                <p>من <strong>شهر إلى 3 أشهر</strong> فقط، مما يتيح سيولة وعوائد سريعة.</p>
-                            </div>
-                        </div>
-                         <div class="snapshot-item">
-                            <div class="icon"><i class="fas fa-shield-alt"></i></div>
-                            <div class="snapshot-item-text">
-                                <h3>استثمار آمن ومدعوم</h3>
-                                <p>أموالك تستثمر في شراء بضاعة حقيقية وملموسة.</p>
-                            </div>
-                        </div>
-                        <div class="snapshot-item">
-                            <div class="icon"><i class="fas fa-check-circle"></i></div>
-                            <div class="snapshot-item-text">
-                                <h3>متوافق مع الشريعة</h3>
-                                <p>يعتمد النموذج على صيغة المرابحة الإسلامية المعتمدة.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 2: Static Growth Visualization -->
-        <section class="section" id="growth-projection-section">
-            <div class="section-content-wrapper roi-chart-grid">
-                <div class="roi-features">
-                    <h2 class="section-title">تصور النمو طويل الأمد</h2>
-                    <p class="section-description">بفضل سياسة إعادة استثمار 40% من الأرباح، ينمو رأس مالك بشكل متسارع، مما يضاعف من عوائدك المستقبلية.</p>
-                    <div class="feature-item">
-                        <div class="icon"><i class="fas fa-layer-group"></i></div>
-                        <div>
-                            <h3>نمو رأس المال المركب</h3>
-                            <p>شاهد كيف يمكن لرأس مالك الأولي أن يتضاعف أكثر من 2.5 مرة خلال 7 سنوات بفضل الأرباح المحتجزة.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="icon"><i class="fas fa-wallet"></i></div>
-                        <div>
-                            <h3>توزيعات نقدية مجزية</h3>
-                            <p>بالإضافة إلى نمو رأس المال، ستحقق عوائد نقدية موزعة تتجاوز 130% من استثمارك الأولي.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="chart-card">
-                    <div class="chart-header">
-                        <h3>نمو رأس المال التراكمي</h3>
-                        <span>7 سنوات</span>
-                    </div>
-                    <svg class="svg-chart" viewBox="0 0 500 300" role="img" aria-label="مخطط بياني يوضح نمو رأس المال على مدى 7 سنوات">
-                        <!-- Y-axis lines -->
-                        <line x1="40" y1="250" x2="480" y2="250" stroke="#EAECEE" stroke-width="1"/>
-                        <line x1="40" y1="187.5" x2="480" y2="187.5" stroke="#EAECEE" stroke-width="1" stroke-dasharray="4"/>
-                        <line x1="40" y1="125" x2="480" y2="125" stroke="#EAECEE" stroke-width="1" stroke-dasharray="4"/>
-                        <line x1="40" y1="62.5" x2="480" y2="62.5" stroke="#EAECEE" stroke-width="1" stroke-dasharray="4"/>
+                    <div>
+                        <h1 class="hero-title">
+                            استثمار في التجارة الحقيقية.
+                            <br>
+                            سيولة نقدية ونمو متزن لمدخراتك.
+                        </h1>
                         
-                        <!-- Y-axis labels -->
-                        <text x="30" y="255" text-anchor="end" font-size="12" fill="#546E7A">0%</text>
-                        <text x="30" y="192.5" text-anchor="end" font-size="12" fill="#546E7A">100%</text>
-                        <text x="30" y="130" text-anchor="end" font-size="12" fill="#546E7A">200%</text>
-                        <text x="30" y="67.5" text-anchor="end" font-size="12" fill="#546E7A">300%</text>
+                        <p class="hero-subtitle">
+                            فرصة استثمارية متوافقة مع أحكام الشريعة الإسلامية تُموّل صفقات تجارية قصيرة الأجل (30 إلى 90 يوماً) في خامات وبضائع حقيقية، مع صرف دفعة نقدية ربع سنوية 3% وتسوية نهائية لـ 50% من صافي الأرباح في نهاية كل سنة مالية.
+                        </p>
 
-                        <!-- Data points based on updated multipliers -->
-                        <defs>
-                            <linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
-                                <stop offset="0%" stop-color="#009688" stop-opacity="0.3"/>
-                                <stop offset="100%" stop-color="#006A71" stop-opacity="0"/>
-                            </linearGradient>
-                        </defs>
-                        <polyline points="55,239.2 125,226.75 195,212.5 265,196.75 335,178 405,156.25 475,132.25" fill="url(#chartGradient)"/>
-                        <polyline points="55,239.2 125,226.75 195,212.5 265,196.75 335,178 405,156.25 475,132.25" fill="none" stroke="#006A71" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        
-                        <!-- Data circles -->
-                        <circle cx="55" cy="239.2" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
-                        <circle cx="125" cy="226.75" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
-                        <circle cx="195" cy="212.5" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
-                        <circle cx="265" cy="196.75" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
-                        <circle cx="335" cy="178" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
-                        <circle cx="405" cy="156.25" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
-                        <circle cx="475" cy="132.25" r="4" fill="#FFFFFF" stroke="#006A71" stroke-width="2"/>
-
-                        <!-- X-axis labels -->
-                         <text x="55" y="270" text-anchor="middle" font-size="12" fill="#546E7A">س1</text>
-                         <text x="125" y="270" text-anchor="middle" font-size="12" fill="#546E7A">س2</text>
-                         <text x="195" y="270" text-anchor="middle" font-size="12" fill="#546E7A">س3</text>
-                         <text x="265" y="270" text-anchor="middle" font-size="12" fill="#546E7A">س4</text>
-                         <text x="335" y="270" text-anchor="middle" font-size="12" fill="#546E7A">س5</text>
-                         <text x="405" y="270" text-anchor="middle" font-size="12" fill="#546E7A">س6</text>
-                         <text x="475" y="270" text-anchor="middle" font-size="12" fill="#546E7A">س7</text>
-                    </svg>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Section 3: Projected ROI Calculator -->
-        <section class="section" id="roi-calculator-section">
-            <div class="section-content-wrapper">
-                 <h2 class="section-title">احسب عائد استثمارك المتوقع</h2>
-                 <p class="section-description">استخدم الحاسبة التفاعلية لترى كيف يمكن لاستثمارك أن ينمو. أدخل المبلغ الذي تود استثماره وحدد فترة الاستثمار لترى النتائج المتوقعة.</p>
-                 <div class="roi-calculator-container">
-                     <div class="calculator-controls">
-                        <div class="input-group">
-                            <label for="investmentAmount">مبلغ الاستثمار (ج.م)</label>
-                            <input type="text" id="investmentAmount" value="100,000" dir="ltr">
-                        </div>
-                        <div class="input-group">
-                            <div class="range-label">
-                                <label for="investmentPeriod">فترة الاستثمار</label>
-                                <span id="yearsLabel">1 سنوات</span>
+                        <!-- Key Performance Highlights -->
+                        <div class="hero-highlights-strip">
+                            <div class="highlight-entry">
+                                <span class="stat-val tabular-nums">3% كاش</span>
+                                <span class="stat-text">دفعة نقدية كل 3 أشهر</span>
                             </div>
-                            <input type="range" id="investmentPeriod" min="1" max="7" value="1" step="1">
+                            <div class="highlight-entry">
+                                <span class="stat-val tabular-nums">37.8% سنوياً</span>
+                                <span class="stat-text">معدل العائد الفعلي المعادل</span>
+                            </div>
+                            <div class="highlight-entry">
+                                <span class="stat-val">100% حلال</span>
+                                <span class="stat-text">مرابحة بضائع ملموسة في المخازن</span>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="hero-cta-group">
+                            <a href="#calculator" class="btn-primary">
+                                <span>احسب عائد استثمارك</span>
+                            </a>
+                            <a href="#cta" class="btn-secondary">
+                                <span>تحدث مع الإدارة التنفيذية</span>
+                            </a>
                         </div>
                     </div>
-                    <div class="calculator-results">
-                        <div class="result-card">
-                            <h3>إجمالي التوزيعات النقدية</h3>
-                            <p id="dividendsResult">12,652 ج.م</p>
+
+                    <!-- Right: Opportunity Snapshot -->
+                    <div class="hero-snapshot-card">
+                        <div class="snapshot-header-row">
+                            <h2>ملخص الفرصة الاستثمارية</h2>
+                            <span class="snapshot-status-tag">جولة التمويل نشطة</span>
                         </div>
-                        <div class="result-card">
-                            <h3>قيمة الأسهم عند التخارج</h3>
-                            <p id="exitValueResult">114,434 ج.م</p>
+
+                        <ul class="snapshot-points-list">
+                            <li class="snapshot-point">
+                                <h3>دفعات نقدية ربع سنوية</h3>
+                                <p>تحويل 3% من أصل رأس المال نقداً إلى حسابك البنكي كل ربع سنة كسيولة دورية منتظمة تحت حساب الأرباح.</p>
+                            </li>
+
+                            <li class="snapshot-point">
+                                <h3>تسوية سنوية شاملة (قاعدة 50%)</h3>
+                                <p>في ختام كل سنة مالية، تُصرف 50% من صافي الأرباح نقداً بعد استنزال ما سبق صرفه فصلياً، مع احتجاز النصف الآخر لنمو رأس المال.</p>
+                            </li>
+
+                            <li class="snapshot-point">
+                                <h3>بضائع حقيقية مملوكة</h3>
+                                <p>كل جنيه يقابله شراء وتملك خامات ومواد كيميائية محددة مسبقاً لمصانع قائمة ومعتمدة.</p>
+                            </li>
+
+                            <li class="snapshot-point">
+                                <h3>احتياطي سيولة نقدي 20%</h3>
+                                <p>المحافظة المستمرة على سيولة نقدية جاهزة لضمان انتظام التوزيعات واستغلال أفضل فرص الشراء الفورية.</p>
+                            </li>
+                        </ul>
+
+                        <div class="snapshot-compliance-note">
+                            صيغة مرابحة إسلامية منضبطة شرعياً مع إقفالات دورية موثقة.
                         </div>
-                         <div class="result-card total">
-                            <h3>إجمالي العائد</h3>
-                            <p id="totalReturnResult">127,086 ج.م</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Section 2: Business Model (The Core Thesis)
+             ========================================================================== -->
+        <section class="section-pad thesis-section" id="thesis">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">كيف تعمل محفظة روابط للتجارة؟</h2>
+                    <p class="section-desc">
+                        فجوة تمويلية حيوية في السوق الصناعي، تلتقي فيها حاجة المصانع لمواد خام فورية مع رغبة المستثمر في عوائد تجارية مضمونة الأصول وقصيرة الأجل.
+                    </p>
+                </div>
+
+                <div class="thesis-editorial-grid">
+                    <div class="thesis-editorial-col">
+                        <h3>1. الطلب الصناعي والتملك</h3>
+                        <p>
+                            تحتاج المصانع إلى خامات كيميائية مستمرة لتشغيل خطوط الإنتاج. تقوم شركة روابط للتجارة بشراء البضائع نقداً بخصومات كمية وتملكها تملكاً تاماً في المخازن.
+                        </p>
+                    </div>
+
+                    <div class="thesis-editorial-col">
+                        <h3>2. عقد بيع المرابحة</h3>
+                        <p>
+                            إعادة بيع البضاعة للمصنع المشتري بصيغة المرابحة بهامش ربح محدد سلفاً، مع جدول سداد سريع يتراوح بين 30 يوماً إلى 90 يوماً كحد أقصى.
+                        </p>
+                    </div>
+
+                    <div class="thesis-editorial-col">
+                        <h3>3. التحصيل وتوزيع الأرباح</h3>
+                        <p>
+                            تحصيل قيمة البضاعة مع أرباحها، وتوزيع العوائد على المستثمرين وفق السياسة المعتمدة مع الحفاظ على سرعة دوران رأس المال.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Section 3: Profit Distribution Policy (3% Quarterly + Annual 50% Settlement)
+             ========================================================================== -->
+        <section class="section-pad promise-section" id="engine">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">سياسة توزيع الأرباح والتسوية السنوية</h2>
+                    <p class="section-desc">
+                        سياسة مالية واضحة ومحددة، تجمع بين تزويد المستثمر بسيولة نقدية منتظمة طوال العام، وإجراء تسوية سنوية شاملة للأرباح المحققة.
+                    </p>
+                </div>
+
+                <div class="policy-card-layout">
+                    <div class="policy-text">
+                        <h3>قاعدة التوزيع المعتمدة لدى روابط للتجارة</h3>
+                        <p>
+                            تهدف سياستنا إلى تحقيق توازن دقيق: صرف سيولة نقدية في يد المستثمر كل 3 أشهر لمساندة التزاماته الدورية، مع تمكينه من الاستفادة الكاملة من أرباح الصفقات السنوية ونمو أصل أمواله.
+                        </p>
+                        <div class="policy-reassurance-note">
+                            <strong>مرونة الاشتراك:</strong> يحق للمستثمر الانضمام في أي ربع سنة، وتُجرى التسوية الختامية بنهاية السنة المالية بحسب عدد الأرباع التي شارك فيها.
                         </div>
                     </div>
-                 </div>
-                 <p class="calculator-disclaimer">
-                    <strong>إخلاء مسؤولية:</strong> هذه الأرقام هي مجرد تقديرات استرشادية بناءً على توقعات الأداء. العائد الفعلي يعتمد على ظروف السوق الفعلية والفرص التجارية المتاحة عند التنفيذ.
-                 </p>
-            </div>
-        </section>
 
-        <!-- Section 4: How it works -->
-        <section class="section" id="cycle-section">
-            <div class="section-content-wrapper">
-                <h2 class="section-title">دورة الاستثمار</h2>
-                <p class="section-description">نؤمن بالشفافية الكاملة. إليك كيف يتم استثمار أموالك خطوة بخطوة لتحقيق العوائد.</p>
-                <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-                    <div class="card"><div class="icon">1</div><h3>تحديد الصفقة</h3><p>تقوم "Bonds Trade" بتحديد المواد المطلوبة وكمياتها.</p></div>
-                    <div class="card"><div class="icon">2</div><h3>الشراء</h3><p>المحفظة تشتري المواد وتتملكها بالكامل.</p></div>
-                    <div class="card"><div class="icon">3</div><h3>عقد المرابحة</h3><p>بيع المواد لـ"Bonds Trade" بهامش ربح متفق عليه.</p></div>
-                    <div class="card"><div class="icon">4</div><h3>تحقيق العائد</h3><p>"Bonds Trade" تسدد المبلغ مع الربح، وتوزع العوائد.</p></div>
-                </div>
-            </div>
-        </section>
+                    <div class="policy-pillars-grid">
+                        <div class="policy-pillar-box">
+                            <h4>1. دفعة نقدية ربع سنوية (3%)</h4>
+                            <p>يحصل المستثمر على 3% نقداً من رأس ماله بنهاية كل ربع سنة تحول لحسابه البنكي تحت حساب الأرباح السنوية.</p>
+                        </div>
 
-        <!-- Section 5: Funding Details -->
-        <section class="section" id="funding-section">
-            <div class="section-content-wrapper">
-                <h2 class="section-title">مؤشرات جولة التمويل الحالية</h2>
-                 <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-                    <div class="card">
-                        <p class="funding-label">حجم التمويل المستهدف</p>
-                        <p class="funding-value">2,000,000 ج.م</p>
-                    </div>
-                    <div class="card">
-                        <p class="funding-label">قيمة السهم</p>
-                        <p class="funding-value">100,000 ج.м</p>
-                    </div>
-                    <div class="card">
-                        <p class="funding-label">نهاية الجولة</p>
-                        <p class="funding-value">30 يونيو 2025</p>
-                    </div>
-                </div>
-                <div class="progress-bar-wrapper">
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" style="width: 25%;"></div>
-                    </div>
-                    <div class="progress-bar-text">
-                        <span><strong>500,000 ج.م</strong> تم جمعها</span>
-                        <span>الهدف: <strong>2,000,000 ج.م</strong></span>
+                        <div class="policy-pillar-box">
+                            <h4>2. تسوية سنوية نهائية (50% من صافي الربح)</h4>
+                            <p>بنهاية السنة المالية، يُصرف للمستثمر 50% من صافي الأرباح نقداً بعد خصم دفعات الـ 3% المستلمة مسبقاً، بينما يُحتجز النصف الآخر لنمو رأس المال.</p>
+                        </div>
+
+                        <div class="policy-pillar-box">
+                            <h4>3. استراتيجية التخارج والسيولة (خلال 90 يوماً)</h4>
+                            <p>يحق للمستثمر طلب التخارج واسترداد أصل رأس المال مع الأرباح المحققة والمحتجزة في أي وقت، مع استلام كامل أمواله بحسابه البنكي خلال مدة أقصاها 90 يوماً من تاريخ تقديم الطلب.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 6: Dividend Policy -->
-        <section class="section" id="dividend-policy-section">
-            <div class="section-content-wrapper">
-                <h2 class="section-title">سياسة الأرباح ونمو رأس المال</h2>
-                <p class="section-description">نهدف إلى تحقيق التوازن بين العوائد الدورية والنمو طويل الأمد لرأس المال المستثمر.</p>
-                 <div class="card-grid">
-                    <div class="card">
-                        <div class="icon"><i class="fas fa-calendar-alt"></i></div>
-                        <h3>توزيعات ربع سنوية</h3>
-                        <p>توزيع <strong>3%</strong> من أصل رأس المال بشكل ربع سنوي تحت حساب الأرباح لضمان تدفق نقدي دوري.</p>
+        <!-- ==========================================================================
+             Section 4: Conservative Investor Decision Calculator
+             ========================================================================== -->
+        <section class="section-pad calculator-section" id="calculator">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">حاسبة العوائد التقديرية</h2>
+                    <p class="section-desc">
+                        حاسبة تفاعلية توضح التدفقات النقدية الدورية والعائد السنوي المتوقع (30% سنوياً) وفق سياسة التوزيع المعتمدة.
+                    </p>
+                </div>
+
+                <div class="calculator-layout">
+                    <!-- Right in RTL: Controls & Exit Strategy -->
+                    <div class="calc-form-pane">
+                        <h3>حدد مبلغ الاستثمار</h3>
+
+                        <div class="calc-field-group">
+                            <label for="capitalInput">مبلغ الاستثمار:</label>
+                            
+                            <div class="calc-input-box">
+                                <span class="currency-tag">ج.م</span>
+                                <input type="text" id="capitalInput" class="tabular-nums" value="100,000" aria-label="مبلغ الاستثمار بالجنيه المصري">
+                            </div>
+
+                            <input type="range" id="capitalSlider" class="calc-slider" min="50000" max="2000000" step="25000" value="100000" aria-label="شريط تمرير مبلغ الاستثمار">
+
+                            <div class="preset-buttons-row">
+                                <button type="button" class="preset-btn active" data-amount="100000">100 ألف</button>
+                                <button type="button" class="preset-btn" data-amount="250000">250 ألف</button>
+                                <button type="button" class="preset-btn" data-amount="500000">500 ألف</button>
+                                <button type="button" class="preset-btn" data-amount="1000000">1 مليون</button>
+                            </div>
+                        </div>
+
+                        <div class="calc-exit-card">
+                            <h4>استراتيجية التخارج واسترداد رأس المال</h4>
+                            <p>
+                                يحق للمستثمر طلب التخارج في أي وقت واسترداد كامل أصل رأس المال مع الأرباح المحققة والمحتجزة، واستلام أمواله بحسابه البنكي خلال مدة أقصاها <strong>90 يوماً</strong> من تاريخ تقديم الطلب.
+                            </p>
+                        </div>
+
+                        <div class="calc-notice-card">
+                            <strong>آلية التوزيع المعتمدة:</strong>
+                            صرف دفعة 3% نقداً كل 3 أشهر (12% كاش) + تسوية سنوية تصرف 50% من صافي الأرباح نقداً (لتصل التوزيعات النقدية إلى 15% سنوياً) + 50% نمو في قيمة أصل استثمارك.
+                        </div>
                     </div>
-                    <div class="card">
-                        <div class="icon"><i class="fas fa-money-bill-wave"></i></div>
-                        <h3>توزيعات سنوية</h3>
-                        <p>توزيع ما يصل إلى <strong>60%</strong> من صافي الأرباح المحققة على المستثمرين في نهاية العام المالي.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon"><i class="fas fa-chart-pie"></i></div>
-                        <h3>نمو رأس المال</h3>
-                        <p>إعادة استثمار <strong>40%</strong> من الأرباح (على الأقل) لزيادة قيمة رأس مالك للعام التالي وتعظيم العوائد.</p>
+
+                    <!-- Left in RTL: Results Panel -->
+                    <div class="calc-output-panel">
+                        <h3>العوائد التقديرية (لسنة مالية كاملة)</h3>
+
+                        <div class="calc-results-list">
+                            <div class="result-row">
+                                <div class="row-label">
+                                    الدفعة النقدية الدورية (كل 3 أشهر)
+                                    <small>3% ربع سنوية تحول مباشرة لحسابك البنكي</small>
+                                </div>
+                                <div class="row-num tabular-nums" id="quarterlyCashDisplay">3,000 ج.م</div>
+                            </div>
+
+                            <div class="result-row">
+                                <div class="row-label">
+                                    إجمالي التوزيعات النقدية السنوية (15%)
+                                    <small>نقد مستلم بالبنك: الدفعات الدورية + التسوية السنوية</small>
+                                </div>
+                                <div class="row-num tabular-nums" id="annualCashDividendsDisplay">15,000 ج.م</div>
+                            </div>
+
+                            <div class="result-row">
+                                <div class="row-label">
+                                    أرباح محتجزة لنمو رأس المال (15%)
+                                    <small>تُضاف لأصل استثمارك لزيادة قيمته الرأسمالية</small>
+                                </div>
+                                <div class="row-num tabular-nums" id="capitalGrowthDisplay">15,000 ج.م</div>
+                            </div>
+
+                            <div class="result-row">
+                                <div class="row-label">
+                                    إجمالي العائد السنوي المتوقع (30%)
+                                    <small>شامل التوزيعات النقدية (15%) + نمو رأس المال (15%)</small>
+                                </div>
+                                <div class="row-num tabular-nums total-green" id="grandTotalReturnDisplay">30,000 ج.م</div>
+                            </div>
+                        </div>
+
+                        <a href="#cta" class="calc-submit-btn">
+                            تحدث مع الإدارة لبدء الاستثمار بهذا المبلغ
+                        </a>
+
+                        <div class="calc-footnote">
+                            * الأرقام محاكاة تقديرية مبنية على معدل عائد سنوي مستهدف 30% وسياسة صرف 50% نقداً واحتجاز 50% لنمو الأصل، ولا تمثل التزاماً قانونياً ثابتاً بالأرباح المستقبلية.
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 7: Risk Management -->
-        <section class="section" id="risk-section">
-             <div class="section-content-wrapper">
-                <h2 class="section-title">إدارة المخاطر وحماية استثمارك</h2>
-                <p class="section-description">نتبع استراتيجيات محكمة لتقليل المخاطر إلى أقصى درجة ممكنة.</p>
-                 <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-                    <div class="card">
-                        <div class="icon"><i class="fas fa-file-invoice-dollar"></i></div>
-                        <h3>ضمان بالأصول</h3>
-                        <p>استثمارك مغطى بقيمة البضاعة المشتراة.</p>
+        <!-- ==========================================================================
+             Section 5: The Verification: Real Track Record (Institutional Matrix & Proof)
+             ========================================================================== -->
+        <section class="section-pad verification-section" id="verification">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">الأداء الفعلي المثبت (معاير سنوياً)</h2>
+                    <p class="section-desc">
+                        سجل النتائج الفعلية المعتمدة من انطلاق المحفظة في 1 يوليو 2025 حتى 30 سبتمبر 2026 (15 شهراً)، مع بيان المعدل السنوي المعادل.
+                    </p>
+                </div>
+
+                <!-- KPI Metrics Row -->
+                <div class="kpi-row-grid">
+                    <div class="kpi-metric-box">
+                        <span class="metric-title">قيمة السهم عند الانطلاق</span>
+                        <div class="metric-figure tabular-nums">10.00 ج.م</div>
+                        <span class="metric-context">1 يوليو 2025</span>
                     </div>
-                    <div class="card">
-                        <div class="icon"><i class="fas fa-tags"></i></div>
-                        <h3>لا مخاطر تقلب أسعار</h3>
-                        <p>يتم الشراء بناءً على تعهد شراء بسعر محدد مسبقاً.</p>
+
+                    <div class="kpi-metric-box">
+                        <span class="metric-title">قيمة السهم الحالية</span>
+                        <div class="metric-figure tabular-nums" style="color: var(--brand-blue-deep);">12.36 ج.م</div>
+                        <span class="metric-context">+23.6% نمو في قيمة السهم</span>
                     </div>
-                    <div class="card">
-                        <div class="icon"><i class="fas fa-warehouse"></i></div>
-                        <h3>لا تكاليف تشغيلية</h3>
-                        <p>المحفظة لا تتحمل أي تكاليف تخزين أو تشغيل.</p>
+
+                    <div class="kpi-metric-box">
+                        <span class="metric-title">إجمالي العائد الفعلي (15 شهراً)</span>
+                        <div class="metric-figure tabular-nums" style="color: var(--brand-navy);">47.2%</div>
+                        <span class="metric-context">عبر 5 فصول مالية كاملة</span>
                     </div>
-                     <div class="card">
-                        <div class="icon"><i class="fas fa-hand-holding-water"></i></div>
-                        <h3>إدارة سيولة ذكية</h3>
-                        <p>نحتفظ بنسبة 20% كسيولة نقدية لضمان توزيعات الأرباح واقتناص الفرص.</p>
+
+                    <div class="kpi-metric-box">
+                        <span class="metric-title">المعدل السنوي المعادل (Normalized)</span>
+                        <div class="metric-figure tabular-nums" style="color: var(--brand-green);">37.8%</div>
+                        <span class="metric-context">معدل العائد لسنة كاملة (12 شهراً)</span>
+                    </div>
+                </div>
+
+                <!-- 100k Realized Wealth Proof Table -->
+                <div class="realized-proof-card">
+                    <div class="proof-card-header">
+                        <h3>أثر الاستثمار الفعلي على كل 100 ألف ج.م منذ الانطلاق</h3>
+                        <span class="proof-period-tag">النتائج المحققة خلال 15 شهراً (1 يوليو 2025 – 30 سبتمبر 2026)</span>
+                    </div>
+
+                    <!-- Modern Compact Proof Table -->
+                    <div class="proof-table-container">
+                        <table class="proof-compact-table tabular-nums">
+                            <thead>
+                                <tr>
+                                    <th>البند والبيان المالي</th>
+                                    <th>القيمة الإجمالية</th>
+                                    <th>الحالة والضمان</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="pt-item-title">رأس المال المستثمر الأساسي</div>
+                                        <span class="pt-item-sub">10,000 سهم عند الانطلاق (10.00 ج.م للسهم)</span>
+                                    </td>
+                                    <td class="pt-val pt-navy">100,000 ج.م</td>
+                                    <td class="pt-status">نقطة البداية (1 يوليو 2025)</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="pt-item-title">الكاش المستلم في البنك</div>
+                                        <span class="pt-item-sub">5 دفعات نقدية ربع سنوية مسددة بالكامل</span>
+                                    </td>
+                                    <td class="pt-val pt-green">+23,600 ج.م</td>
+                                    <td class="pt-status"><span class="pt-pill-green">مسددة بالبنك 100%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="pt-item-title">أصل رأس المال القائم في المخازن</div>
+                                        <span class="pt-item-sub">بضائع وخامات حقيقية ومملوكة مقومة بسعر السوق</span>
+                                    </td>
+                                    <td class="pt-val pt-blue">123,600 ج.م</td>
+                                    <td class="pt-status">بضائع ملموسة في المخازن</td>
+                                </tr>
+                                <tr class="pt-total-row">
+                                    <td>
+                                        <div class="pt-total-title">إجمالي العائد المحقق (الأرباح)</div>
+                                        <span class="pt-total-sub">معدل العائد المحقق: 37.8% سنوياً (+23.6k كاش + 23.6k نمو أصول)</span>
+                                    </td>
+                                    <td class="pt-total-val pt-green tabular-nums">+47,200 ج.م</td>
+                                    <td class="pt-total-badge"><span class="badge-total">+47.2% ربح محقق</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Execution Proof & Consistency Bar -->
+                <div class="verification-footer-bar">
+                    <div class="vf-commitment">
+                        <span class="vf-check-icon">✓</span>
+                        <div>
+                            <strong>سجل التزام 100% بالسداد الفصلي:</strong>
+                            تم سداد 5 دفعات نقدية ربع سنوية متتالية في حسابات المستثمرين البنكية في مواعيد استحقاقها دون أي تأخير.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dedicated Audit & Full Track Record Link Card -->
+                <div class="audit-link-card">
+                    <div class="alc-info">
+                        <span class="alc-tag">التدقيق الفصلي والشفافية المحاسبية</span>
+                        <h3>هل ترغب في مراجعة كافة الفصول والتدقيق المالي بالتفصيل؟</h3>
+                        <p>
+                            اطلع على سجل العمليات الكامل، وقيم الأسهم، وجدول التوزيعات النقدية المسددة بالتواريخ لكل ربع مالي منذ الانطلاق في صفحة التدقيق المالي المستقلة.
+                        </p>
+                    </div>
+                    <a href="track-record.html" class="alc-button">
+                        <span>عرض سجل الأداء والتدقيق الفصلي الكامل</span>
+                        <span class="alc-arrow">←</span>
+                    </a>
+                </div>
+
+                <div class="verification-explanation">
+                    <strong>إيضاح التدقيق السنوي:</strong>
+                    امتدت الفترة التاريخية الموضحة 15 شهراً (1.25 سنة) وحققت عائداً إجمالياً بسيطاً قدره 47.2% للمستثمر الذي احتفظ بالسهم طوال الفترة. عند معايرة هذه النتيجة لسنة مالية كاملة (12 شهراً)، يعادل الأداء المحقق <strong>37.8% سنوياً</strong>، في حين تعتمد حاسبة العوائد التقديرية على نموذج متحفظ بمعدل سنوي مستهدف 30% سنوياً.
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             Section 6: Risk Governance & Asset Protection
+             ========================================================================== -->
+        <section class="section-pad security-section" id="security">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">حماية رأس المال وضوابط الأمان</h2>
+                    <p class="section-desc">
+                        ترتكز استراتيجية روابط للتجارة على تقليص المخاطر عبر آليات تجارية وقانونية محكمة تحفظ مدخرات المستثمرين.
+                    </p>
+                </div>
+
+                <div class="security-editorial-grid">
+                    <div class="security-item">
+                        <h3>ملكية بضائع حقيقية</h3>
+                        <p>لا يتم توجيه الأموال إلى مضاربات أو أوراق مالية افتراضية؛ بل يتم شراء خامات كيميائية مادية وتملكها بالكامل في المخازن قبل إعادة بيعها.</p>
+                    </div>
+
+                    <div class="security-item">
+                        <h3>تسعير مسبق بعقود مرابحة</h3>
+                        <p>تُبرم صفقات المرابحة بهامش ربح متفق عليه مسبقاً مع المشتري، مما يحد من مخاطر تقلب الأسعار في الأسواق المفتوحة.</p>
+                    </div>
+
+                    <div class="security-item">
+                        <h3>دورات سريعة (30–90 يوماً)</h3>
+                        <p>سرعة دوران رأس المال تتيح تقييم الجدارة الائتمانية للمشترين باستمرار وتحول دون تجميد السيولة لفترات زمنية طويلة.</p>
+                    </div>
+
+                    <div class="security-item">
+                        <h3>احتياطي سيولة 20%</h3>
+                        <p>الاحتفاظ المستمر بنسبة 20% في صورة نقد سائل لمواجهة أي تأخيرات طارئة وتأمين دفعات الأرباح النقدية للمستثمرين في مواعيدها.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 8: Call to Invest -->
-        <section class="section" id="contact-section">
-            <div class="section-content-wrapper">
-                 <h2 class="section-title">هل أنت مستعد لبدء الاستثمار؟</h2>
-                 <p class="section-description">انضم إلينا في هذه الفرصة الاستثمارية الواعدة. تواصل مع فريقنا اليوم للحصول على كافة التفاصيل والإجابة على استفساراتك.</p>
-                 
-                 <div class="contact-section-wrapper">
-                    <div class="contact-profile">
-                        <div class="avatar"><i class="fas fa-user-tie"></i></div>
+        <!-- ==========================================================================
+             Section 7: Direct Executive Access (CTA)
+             ========================================================================== -->
+        <section class="section-pad cta-section" id="cta">
+            <div class="container executive-action-layout">
+                <div class="section-header">
+                    <h2 class="section-title">تواصل مباشرة مع الإدارة التنفيذية</h2>
+                    <p class="section-desc">
+                        فريق الإدارة في شركة روابط للتجارة متاح للإجابة على استفساراتكم ومناقشة تفاصيل المشاركة في جولة التمويل الحالية.
+                    </p>
+                </div>
+
+                <div class="executives-row">
+                    <!-- Profile 1: Alsayed Tawakol -->
+                    <div class="executive-card">
                         <h3>السيد توكل</h3>
-                        <p class="title">العضو المنتدب</p>
-                        <a href="tel:+201003978631" class="phone-link"><i class="fas fa-phone"></i> 01003978631</a>
+                        <span class="exec-position">العضو المنتدب</span>
+                        
+                        <div class="exec-links-stack">
+                            <a href="tel:+201003978631" class="btn-call" aria-label="اتصال هاتفي بالسيد توكل">
+                                <i class="fas fa-phone-alt"></i>
+                                <span class="tabular-nums">01003978631</span>
+                            </a>
+                        </div>
                     </div>
-                    
-                    <div class="contact-divider"></div>
-                    
-                    <div class="contact-profile">
-                        <div class="avatar"><i class="fas fa-user-cog"></i></div>
+
+                    <!-- Profile 2: Sameh El Gohary -->
+                    <div class="executive-card">
                         <h3>سامح الجوهري</h3>
-                        <p class="title">المدير المالي</p>
-                        <a href="tel:+201003900352" class="phone-link"><i class="fas fa-phone"></i> 01003900352</a>
+                        <span class="exec-position">المدير المالي</span>
+
+                        <div class="exec-links-stack">
+                            <a href="tel:+201003900352" class="btn-call" aria-label="اتصال هاتفي بسامح الجوهري">
+                                <i class="fas fa-phone-alt"></i>
+                                <span class="tabular-nums">01003900352</span>
+                            </a>
+                        </div>
                     </div>
-                 </div>
+                </div>
             </div>
         </section>
-        
     </main>
-    
-    <!-- Page Footer -->
-    <footer class="page-footer">
-       <div class="footer-grid">
-            <div class="footer-col">
-                <img src="https://i.ibb.co/C3Cx2w26/bonds-logo-for-dark-background.png" alt="شعار Bonds Trade" class="header-logo" style="height: 50px; margin-bottom: 1.5rem;" onerror="this.onerror=null;this.src='https://placehold.co/150x50/1A2E35/FFFFFF?text=Bonds';">
-                <p style="max-width: 250px; line-height: 1.7; color: #B0BEC5;">فرصة استثمارية متوافقة مع الشريعة لتمويل التجارة وتحقيق عوائد مجزية.</p>
+
+    <!-- ==========================================================================
+         Footer
+         ========================================================================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="bonds-trade-english-black.png" alt="شعار شركة روابط للتجارة Bonds Trade" class="footer-logo">
+                    <p>
+                        شركة روابط للتجارة (Bonds Trade) — تمويل تجارة وسلاسل توريد الخامات الصناعية وفق أحكام الشريعة الإسلامية.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>أقسام الصفحة</h3>
+                    <ul>
+                        <li><a href="#hero">نظرة عامة</a></li>
+                        <li><a href="#thesis">فكرة الاستثمار</a></li>
+                        <li><a href="#engine">سياسة الأرباح</a></li>
+                        <li><a href="#calculator">حاسبة العوائد</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>الشفافية والحماية</h3>
+                    <ul>
+                        <li><a href="#verification">النتائج الفعلية</a></li>
+                        <li><a href="track-record.html">سجل التدقيق الفصلي الكامل</a></li>
+                        <li><a href="#security">ضوابط الأمان</a></li>
+                        <li><a href="#cta">التواصل المباشر</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>المكتب الرئيسي</h3>
+                    <p>جمهورية مصر العربية</p>
+                    <p style="margin-top: 0.5rem;">
+                        <a href="tel:+201003978631" style="color: #CBD5E1; text-decoration: none;" class="tabular-nums">01003978631</a>
+                    </p>
+                    <p style="margin-top: 0.35rem;">
+                        <a href="mailto:info@bondsfortrade.com" style="color: #CBD5E1; text-decoration: none;">info@bondsfortrade.com</a>
+                    </p>
+                </div>
             </div>
-            <div class="footer-col">
-                <h3>الفرصة</h3>
-                <ul>
-                    <li><a href="#growth-projection-section">النمو المتوقع</a></li>
-                    <li><a href="#roi-calculator-section">حاسبة العائد</a></li>
-                    <li><a href="#funding-section">جولة التمويل</a></li>
-                </ul>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025–2026 شركة روابط للتجارة (Bonds Trade). جميع الحقوق محفوظة.</p>
+                <p>البيانات المعروضة مستندة إلى إقفالات ربع سنوية موثقة ولا تشكل ضماناً ثابتاً للنتائج المستقبلية.</p>
             </div>
-            <div class="footer-col">
-                <h3>النموذج</h3>
-                <ul>
-                    <li><a href="#cycle-section">دورة الاستثمار</a></li>
-                    <li><a href="#risk-section">إدارة المخاطر</a></li>
-                    <li><a href="#dividend-policy-section">سياسة الأرباح</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>تواصل</h3>
-                <ul>
-                    <li><a href="#contact-section">معلومات الاتصال</a></li>
-                </ul>
-            </div>
-       </div>
-       <div class="footer-bottom">
-            <p>&copy; 2025 Bonds Trade. جميع الحقوق محفوظة.</p>
-       </div>
+        </div>
     </footer>
 
+    <!-- ==========================================================================
+         JavaScript Logic
+         ========================================================================== -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // ROI Calculator Elements
-            const investmentAmountInput = document.getElementById('investmentAmount');
-            const investmentPeriodSlider = document.getElementById('investmentPeriod');
-            const yearsLabel = document.getElementById('yearsLabel');
-            const dividendsResult = document.getElementById('dividendsResult');
-            const exitValueResult = document.getElementById('exitValueResult');
-            const totalReturnResult = document.getElementById('totalReturnResult');
+        // --- Calculator Logic ---
+        // Distribution Policy:
+        // 1. Advance quarterly cash payout = 3% of capital per quarter.
+        // 2. Expected annual return target = 30% per year:
+        //    - Total cash dividends distributed: 50% of profits (15% of capital = quarterly advances + annual cash settlement).
+        //    - Retained earnings for capital growth: 50% of profits (15% of capital).
+        //    - Total investment return: 30% per year.
+        const QUARTERLY_ADVANCE_RATE = 0.03; // 3% per quarter
+        const ANNUAL_TARGET_RETURN_RATE = 0.30; // 30% per year
+        const CASH_PROFIT_SHARE = 0.50; // 50% paid in cash
 
-            // Final, corrected projection data based on the latest spreadsheet.
-            // Index 0 represents Year 1.
-            const capitalMultipliers = [1.1443, 1.3095, 1.4985, 1.7149, 1.9624, 2.2456, 2.5698];
-            const cumulativeDividends = [0.1265, 0.2713, 0.4370, 0.6266, 0.8435, 1.0918, 1.3759];
+        const capitalSlider = document.getElementById('capitalSlider');
+        const capitalInput = document.getElementById('capitalInput');
+        const presetChips = document.querySelectorAll('.preset-btn');
 
-            function formatCurrency(value) {
-                // Format to whole number and add currency symbol
-                return new Intl.NumberFormat('ar-EG', { style: 'currency', currency: 'EGP', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
-            }
+        const quarterlyCashDisplay = document.getElementById('quarterlyCashDisplay');
+        const annualCashDividendsDisplay = document.getElementById('annualCashDividendsDisplay');
+        const capitalGrowthDisplay = document.getElementById('capitalGrowthDisplay');
+        const grandTotalReturnDisplay = document.getElementById('grandTotalReturnDisplay');
 
-            function calculateROI() {
-                // Sanitize and parse the input amount
-                let amount = parseFloat(investmentAmountInput.value.replace(/,/g, ''));
-                if (isNaN(amount) || amount < 0) {
-                    amount = 0;
-                }
+        let currentCapital = 100000;
 
-                const period = parseInt(investmentPeriodSlider.value); // 1 to 7
-                const index = period - 1; // 0 to 6 for array access
+        function formatNumber(num) {
+            return Math.round(num).toLocaleString('en-US');
+        }
 
-                if (index >= 0 && index < capitalMultipliers.length) {
-                    const capitalMultiplier = capitalMultipliers[index];
-                    const dividendMultiplier = cumulativeDividends[index];
+        function cleanNumber(str) {
+            const clean = str.replace(/[^\d]/g, '');
+            return parseInt(clean, 10) || 0;
+        }
 
-                    const calculatedDividends = amount * dividendMultiplier;
-                    const calculatedExitValue = amount * capitalMultiplier;
-                    const totalReturn = calculatedDividends + calculatedExitValue;
+        function calculateAndRender() {
+            if (currentCapital < 10000) currentCapital = 10000;
 
-                    // Update UI
-                    dividendsResult.textContent = formatCurrency(calculatedDividends);
-                    exitValueResult.textContent = formatCurrency(calculatedExitValue);
-                    totalReturnResult.textContent = formatCurrency(totalReturn);
-                    yearsLabel.textContent = `${period} سنوات`;
-                }
-            }
-            
-            // Format input amount with commas on input
-            investmentAmountInput.addEventListener('input', (e) => {
-                let value = e.target.value.replace(/,/g, '');
-                if (!isNaN(value) && value.length > 0) {
-                    e.target.value = new Intl.NumberFormat('en-US').format(value);
-                }
-                 calculateROI();
-            });
+            // Calculations based on exact policy
+            const quarterlyCash = currentCapital * QUARTERLY_ADVANCE_RATE;
+            const grandTotalReturn = currentCapital * ANNUAL_TARGET_RETURN_RATE;
+            const annualCashDividends = grandTotalReturn * CASH_PROFIT_SHARE;
+            const capitalGrowth = grandTotalReturn * (1 - CASH_PROFIT_SHARE);
 
-            // Add event listeners
-            investmentPeriodSlider.addEventListener('input', calculateROI);
-            
-            // Initial calculation on page load
-            calculateROI();
+            quarterlyCashDisplay.textContent = formatNumber(quarterlyCash) + " ج.م";
+            annualCashDividendsDisplay.textContent = formatNumber(annualCashDividends) + " ج.م";
+            capitalGrowthDisplay.textContent = formatNumber(capitalGrowth) + " ج.م";
+            grandTotalReturnDisplay.textContent = formatNumber(grandTotalReturn) + " ج.م";
+        }
+
+        capitalSlider.addEventListener('input', (e) => {
+            currentCapital = parseInt(e.target.value, 10);
+            capitalInput.value = formatNumber(currentCapital);
+            updateActivePreset(currentCapital);
+            calculateAndRender();
         });
-    </script>
 
+        capitalInput.addEventListener('input', (e) => {
+            const val = cleanNumber(e.target.value);
+            currentCapital = val;
+            capitalSlider.value = Math.min(val, 2000000);
+            updateActivePreset(val);
+            calculateAndRender();
+        });
+
+        capitalInput.addEventListener('blur', () => {
+            capitalInput.value = formatNumber(currentCapital);
+        });
+
+        presetChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const amount = parseInt(chip.getAttribute('data-amount'), 10);
+                currentCapital = amount;
+                capitalSlider.value = Math.min(amount, 2000000);
+                capitalInput.value = formatNumber(amount);
+                
+                presetChips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                
+                calculateAndRender();
+            });
+        });
+
+        function updateActivePreset(val) {
+            presetChips.forEach(chip => {
+                const amount = parseInt(chip.getAttribute('data-amount'), 10);
+                if (amount === val) {
+                    chip.classList.add('active');
+                } else {
+                    chip.classList.remove('active');
+                }
+            });
+        }
+
+        calculateAndRender();
+    </script>
 </body>
 </html>

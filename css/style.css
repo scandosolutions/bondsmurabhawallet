@@ -1,0 +1,1680 @@
+/* ==========================================================================
+           1. Design Tokens & Browser Surfaces
+           ========================================================================== */
+        :root {
+            --brand-navy-dark: #070D1E;
+            --brand-navy: #0A1128;
+            --brand-navy-surface: #101B3A;
+            --brand-blue: #0284C7;
+            --brand-blue-deep: #0369A1;
+            --brand-blue-soft: #F0F7FF;
+            --brand-green: #047857;
+            --brand-green-soft: #ECFDF5;
+            --brand-amber: #92400E;
+            --brand-amber-soft: #FFFBEB;
+            
+            --bg-page: #F8FAFC;
+            --bg-surface: #FFFFFF;
+            --bg-subtle: #F1F5F9;
+            --text-heading: #0A1128;
+            --text-body: #334155;
+            --text-muted: #475569;
+            --border: #CBD5E1;
+            --border-subtle: #E2E8F0;
+            
+            --shadow-sm: 0 1px 3px rgba(10, 17, 40, 0.05);
+            --shadow-md: 0 4px 16px rgba(10, 17, 40, 0.07);
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+            
+            --font-arabic: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- Custom Browser Surfaces --- */
+        ::selection {
+            background-color: #BAE6FD;
+            color: #0A1128;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #94A3B8;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748B;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--brand-blue-deep);
+            outline-offset: 3px;
+        }
+
+        /* ==========================================================================
+           2. Reset & Typography
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 32px;
+        }
+
+        body {
+            font-family: var(--font-arabic);
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            line-height: 1.75;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--text-heading);
+            font-weight: 700;
+            line-height: 1.35;
+            letter-spacing: -0.015em;
+        }
+
+        p {
+            font-size: 1.02rem;
+            color: var(--text-body);
+            max-width: 72ch;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .tabular-nums {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ==========================================================================
+           3. Brand Bar & Hero Section
+           ========================================================================== */
+        .brand-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2.75rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .brand-logo-main {
+            height: 42px;
+            width: auto;
+            display: block;
+        }
+
+        .brand-tagline-text {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .section-pad {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            margin-bottom: 2.75rem;
+            max-width: 760px;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 3vw, 2.35rem);
+            color: var(--brand-navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .hero-section {
+            padding: 44px 0 70px 0;
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.1rem, 3.8vw, 3rem);
+            font-weight: 700;
+            color: var(--brand-navy);
+            line-height: 1.3;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-body);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .hero-highlights-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.25rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .highlight-entry {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .highlight-entry .stat-val {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--brand-navy);
+        }
+
+        .highlight-entry .stat-text {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--brand-navy);
+            color: #FFFFFF;
+            padding: 0.85rem 1.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-blue-deep);
+            color: #FFFFFF;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--brand-navy);
+            border: 1px solid var(--border);
+            padding: 0.85rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-subtle);
+            border-color: var(--brand-navy);
+        }
+
+        /* Hero Right Column: Verified Opportunity Snapshot */
+        .hero-snapshot-card {
+            background: var(--bg-page);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 2.25rem;
+        }
+
+        .snapshot-header-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border-subtle);
+            margin-bottom: 1.5rem;
+        }
+
+        .snapshot-header-row h2 {
+            font-size: 1.25rem;
+            color: var(--brand-navy);
+        }
+
+        .snapshot-status-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--brand-green);
+        }
+
+        .snapshot-points-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.35rem;
+        }
+
+        .snapshot-point {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .snapshot-point h3 {
+            font-size: 1.02rem;
+            color: var(--brand-navy);
+            font-weight: 600;
+        }
+
+        .snapshot-point p {
+            font-size: 0.92rem;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .snapshot-compliance-note {
+            margin-top: 1.5rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           4. Section 2: Business Model (The Core Thesis)
+           ========================================================================== */
+        .thesis-section {
+            background: #FFFFFF;
+        }
+
+        .thesis-editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.25rem;
+        }
+
+        .thesis-editorial-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 1.25rem;
+            border-right: 1px solid var(--border-subtle);
+        }
+
+        .thesis-editorial-col:last-child {
+            border-right: none;
+        }
+
+        .thesis-editorial-col h3 {
+            font-size: 1.2rem;
+            color: var(--brand-navy);
+        }
+
+        .thesis-editorial-col p {
+            font-size: 0.95rem;
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+
+        /* ==========================================================================
+           5. Section 3: Profit Distribution Policy (3% Quarterly + Annual 50% Settlement)
+           ========================================================================== */
+        .promise-section {
+            background: var(--bg-page);
+        }
+
+        .policy-card-layout {
+            background: var(--brand-navy);
+            color: #FFFFFF;
+            border-radius: var(--radius-lg);
+            padding: 2.75rem;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .policy-text h3 {
+            color: #FFFFFF;
+            font-size: 1.65rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .policy-text p {
+            color: #E2E8F0;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+        .policy-reassurance-note {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1rem 1.25rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            color: #E2E8F0;
+            line-height: 1.6;
+        }
+
+        .policy-pillars-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+        }
+
+        .policy-pillar-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: var(--radius-md);
+            padding: 1.35rem 1.5rem;
+        }
+
+        .policy-pillar-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .policy-pillar-box:nth-child(1) h4 {
+            color: #38BDF8;
+        }
+
+        .policy-pillar-box:nth-child(2) h4 {
+            color: #34D399;
+        }
+
+        .policy-pillar-box:nth-child(3) h4 {
+            color: #FCD34D;
+        }
+
+        .policy-pillar-box p {
+            color: #CBD5E1;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ==========================================================================
+           6. Section 4: Conservative Investor Decision Calculator
+           ========================================================================== */
+        .calculator-section {
+            background: #FFFFFF;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .calculator-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.25rem;
+            align-items: stretch;
+        }
+
+        .calc-form-pane {
+            background: var(--bg-page);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 2.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.25rem;
+        }
+
+        .calc-form-pane h3 {
+            font-size: 1.25rem;
+            color: var(--brand-navy);
+            padding-bottom: 0.85rem;
+            border-bottom: 1px solid var(--border-subtle);
+            margin: 0;
+        }
+
+        .calc-field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .calc-field-group label {
+            font-weight: 700;
+            color: var(--brand-navy);
+            font-size: 1rem;
+        }
+
+        .calc-input-box {
+            display: flex;
+            align-items: center;
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.6rem 1rem;
+        }
+
+        .calc-input-box:focus-within {
+            border-color: var(--brand-blue-deep);
+            box-shadow: 0 0 0 3px rgba(3, 105, 161, 0.15);
+        }
+
+        .calc-input-box input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-family: var(--font-arabic);
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--brand-navy);
+            outline: none;
+            direction: ltr;
+            text-align: right;
+        }
+
+        .calc-input-box .currency-tag {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--brand-blue-deep);
+            margin-right: 0.75rem;
+        }
+
+        .calc-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: var(--border-subtle);
+            outline: none;
+            cursor: pointer;
+            direction: ltr;
+        }
+
+        .calc-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--brand-navy);
+            border: 2px solid #FFFFFF;
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+        }
+
+        .preset-buttons-row {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .preset-btn {
+            background: #FFFFFF;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-body);
+            padding: 0.45rem 0.85rem;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-arabic);
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .preset-btn:hover {
+            border-color: var(--brand-navy);
+            color: var(--brand-navy);
+        }
+
+        .preset-btn.active {
+            background: var(--brand-navy);
+            border-color: var(--brand-navy);
+            color: #FFFFFF;
+        }
+
+        .calc-exit-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 1.15rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .calc-exit-card h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--brand-navy);
+            margin: 0;
+        }
+
+        .calc-exit-card p {
+            font-size: 0.88rem;
+            color: var(--text-body);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .calc-notice-card {
+            background: #FFFFFF;
+            padding: 1rem 1.25rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-subtle);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Calculator Results Output (Symmetric Card) */
+        .calc-output-panel {
+            background: var(--bg-page);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 2.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.25rem;
+        }
+
+        .calc-output-panel h3 {
+            font-size: 1.25rem;
+            color: var(--brand-navy);
+            padding-bottom: 0.85rem;
+            border-bottom: 1px solid var(--border-subtle);
+            margin: 0;
+        }
+
+        .calc-results-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-subtle);
+            gap: 1rem;
+        }
+
+        .result-row:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .result-row .row-label {
+            font-size: 0.92rem;
+            color: var(--brand-navy);
+            font-weight: 600;
+        }
+
+        .result-row .row-label small {
+            display: block;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 0.15rem;
+            font-weight: 400;
+        }
+
+        .result-row .row-num {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--brand-navy);
+            text-align: left;
+            white-space: nowrap;
+            direction: ltr;
+        }
+
+        .result-row .row-num.total-green {
+            color: var(--brand-green);
+            font-size: 1.55rem;
+        }
+
+        .calc-submit-btn {
+            background: var(--brand-navy);
+            color: #FFFFFF;
+            border: none;
+            padding: 0.95rem;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-arabic);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: var(--transition);
+            display: block;
+            text-decoration: none;
+        }
+
+        .calc-submit-btn:hover {
+            background: var(--brand-blue-deep);
+            color: #FFFFFF;
+        }
+
+        .calc-footnote {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* ==========================================================================
+           7. Section 5: The Verification: Real Track Record (Normalized for 1 Year)
+           ========================================================================== */
+        .verification-section {
+            background: var(--bg-page);
+        }
+
+        .kpi-row-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .kpi-metric-box {
+            background: #FFFFFF;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 1.25rem;
+        }
+
+        .kpi-metric-box .metric-title {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 0.35rem;
+            display: block;
+        }
+
+        .kpi-metric-box .metric-figure {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--brand-navy);
+            line-height: 1.1;
+        }
+
+        .kpi-metric-box .metric-context {
+            font-size: 0.82rem;
+            color: var(--brand-blue-deep);
+            font-weight: 600;
+            margin-top: 0.4rem;
+            display: block;
+        }
+
+        /* 100k Wealth Realized Proof Table */
+        .realized-proof-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(10, 17, 40, 0.04);
+        }
+
+        .proof-card-header {
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 0.85rem;
+        }
+
+        .proof-card-header h3 {
+            font-size: 1.2rem;
+            color: var(--brand-navy);
+            margin: 0 0 0.3rem 0;
+            font-weight: 700;
+        }
+
+        .proof-card-header .proof-period-tag {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .proof-table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .proof-compact-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+        }
+
+        .proof-compact-table th {
+            background: var(--bg-page);
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 0.75rem 1rem;
+            border-bottom: 2px solid var(--border-subtle);
+            white-space: nowrap;
+        }
+
+        .proof-compact-table td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+            vertical-align: middle;
+        }
+
+        .pt-item-title {
+            font-weight: 700;
+            color: var(--brand-navy);
+            font-size: 0.95rem;
+        }
+
+        .pt-item-sub {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            display: block;
+            margin-top: 0.15rem;
+        }
+
+        .pt-val {
+            font-weight: 800;
+            font-size: 1.05rem;
+            white-space: nowrap;
+        }
+
+        .pt-navy { color: var(--brand-navy); }
+        .pt-green { color: var(--brand-green); }
+        .pt-blue { color: var(--brand-blue-deep); }
+
+        .pt-status {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .pt-pill-green {
+            display: inline-block;
+            background: rgba(4, 120, 87, 0.1);
+            color: var(--brand-green);
+            font-weight: 700;
+            padding: 0.2rem 0.55rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.82rem;
+            white-space: nowrap;
+        }
+
+        .proof-compact-table tr.pt-total-row {
+            background: rgba(3, 105, 161, 0.04);
+            font-weight: 800;
+        }
+
+        .proof-compact-table tr.pt-total-row td {
+            border-top: 2px solid var(--brand-blue-deep);
+            border-bottom: none;
+            padding: 1rem;
+        }
+
+        .pt-total-title {
+            font-size: 1.02rem;
+            font-weight: 800;
+            color: var(--brand-navy);
+        }
+
+        .pt-total-sub {
+            font-size: 0.8rem;
+            color: var(--brand-green);
+            font-weight: 700;
+            display: block;
+            margin-top: 0.2rem;
+        }
+
+        .pt-total-val {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: var(--brand-navy);
+            white-space: nowrap;
+        }
+
+        .pt-total-val.pt-green {
+            color: var(--brand-green);
+        }
+
+        .badge-total {
+            display: inline-block;
+            background: var(--brand-green);
+            color: #FFFFFF;
+            font-weight: 800;
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.82rem;
+            white-space: nowrap;
+        }
+
+        /* Audit Link Card (Deep-Dive Entry Point) */
+        .audit-link-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 2rem 2.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .audit-link-card .alc-info {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .audit-link-card .alc-tag {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--brand-blue-deep);
+            display: block;
+            margin-bottom: 0.35rem;
+        }
+
+        .audit-link-card h3 {
+            font-size: 1.25rem;
+            color: var(--brand-navy);
+            margin: 0 0 0.4rem 0;
+            font-weight: 700;
+        }
+
+        .audit-link-card p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .alc-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--brand-navy);
+            color: #FFFFFF;
+            padding: 0.95rem 1.65rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.98rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .alc-button:hover {
+            background: var(--brand-blue-deep);
+            color: #FFFFFF;
+        }
+
+        .alc-arrow {
+            font-size: 1.15rem;
+            transition: transform 0.2s ease;
+        }
+
+        .alc-button:hover .alc-arrow {
+            transform: translateX(-4px);
+        }
+
+        /* Execution & Consistency Bar */
+        .verification-footer-bar {
+            background: #FFFFFF;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.15rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .vf-commitment {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--brand-navy);
+        }
+
+        .vf-check-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(5, 150, 105, 0.12);
+            color: var(--brand-green);
+            font-weight: 800;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .vf-action .btn-text-action {
+            color: var(--brand-blue-deep);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .vf-action .btn-text-action:hover {
+            color: var(--brand-navy);
+            text-decoration: underline;
+        }
+
+        .verification-explanation {
+            padding: 1.25rem 1.5rem;
+            background: #FFFFFF;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            font-size: 0.88rem;
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+
+        /* ==========================================================================
+           8. Section 6: Risk Governance & Asset Protection
+           ========================================================================== */
+        .security-section {
+            background: #FFFFFF;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .security-editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .security-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .security-item h3 {
+            font-size: 1.1rem;
+            color: var(--brand-navy);
+        }
+
+        .security-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           9. Section 7: Direct Executive Access & Join Current Round (CTA)
+           ========================================================================== */
+        .cta-section {
+            background: var(--bg-page);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .executive-action-layout {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .executive-action-layout .section-header {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .executives-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .executive-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 2.25rem 2rem;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(10, 17, 40, 0.04);
+            transition: var(--transition);
+        }
+
+        .executive-card:hover {
+            border-color: var(--brand-blue-deep);
+            box-shadow: 0 6px 18px rgba(10, 17, 40, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .executive-card h3 {
+            font-size: 1.35rem;
+            color: var(--brand-navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .executive-card .exec-position {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .exec-links-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .btn-call {
+            background: var(--brand-navy);
+            color: #FFFFFF;
+            padding: 0.85rem 1.35rem;
+            border-radius: var(--radius-sm);
+            font-size: 1.05rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            transition: var(--transition);
+            box-shadow: 0 2px 6px rgba(10, 17, 40, 0.08);
+        }
+
+        .btn-call:hover {
+            background: var(--brand-blue-deep);
+            color: #FFFFFF;
+            box-shadow: 0 6px 16px rgba(3, 105, 161, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================================================
+           10. Footer
+           ========================================================================== */
+        .site-footer {
+            background: var(--brand-navy-dark);
+            color: #CBD5E1;
+            padding: 60px 0 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .site-footer p {
+            color: #CBD5E1;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-col h3 {
+            color: #F8FAFC;
+            font-size: 1.02rem;
+            margin-bottom: 1.15rem;
+        }
+
+        .footer-col p {
+            font-size: 0.88rem;
+            color: #CBD5E1;
+            line-height: 1.7;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .footer-col ul a {
+            font-size: 0.88rem;
+            color: #94A3B8;
+        }
+
+        .footer-col ul a:hover {
+            color: #38BDF8;
+        }
+
+        .footer-logo {
+            filter: brightness(0) invert(1);
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: #94A3B8;
+        }
+
+        .footer-bottom p {
+            color: #94A3B8;
+        }
+
+        /* ==========================================================================
+           11. Responsive Styles
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .calculator-layout,
+            .policy-card-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .thesis-editorial-grid,
+            .security-editorial-grid,
+            .kpi-row-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-pad {
+                padding: 28px 0;
+            }
+
+            .container {
+                padding: 0 0.85rem;
+            }
+
+            .section-header {
+                margin-bottom: 1.15rem;
+            }
+
+            .section-title {
+                font-size: 1.22rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .section-desc {
+                font-size: 0.82rem;
+                line-height: 1.5;
+            }
+
+            /* Ultra-Compact Hero */
+            .hero-section {
+                padding: 14px 0 24px;
+            }
+
+            .hero-grid {
+                gap: 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 1.55rem;
+                line-height: 1.3;
+                margin-bottom: 0.45rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.82rem;
+                line-height: 1.5;
+                margin-bottom: 0.75rem;
+            }
+
+            .brand-bar {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1rem;
+                padding-bottom: 0.65rem;
+            }
+
+            .brand-logo-main {
+                height: 26px;
+            }
+
+            .brand-tagline-text {
+                display: none;
+            }
+
+            /* Compact 3-Column Highlights Strip */
+            .hero-highlights-strip {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.25rem;
+                padding: 0.45rem 0.35rem;
+                margin-bottom: 0.85rem;
+                background: var(--bg-page);
+                border-radius: var(--radius-sm);
+            }
+
+            .highlight-entry {
+                text-align: center;
+                padding: 0.15rem 0.2rem;
+                border-right: none;
+            }
+
+            .highlight-entry:not(:last-child) {
+                border-left: 1px solid var(--border-subtle);
+            }
+
+            .stat-val {
+                font-size: 0.85rem;
+                font-weight: 800;
+                display: block;
+            }
+
+            .stat-text {
+                font-size: 0.78rem;
+                color: var(--text-muted);
+                line-height: 1.2;
+                display: block;
+                margin-top: 0.1rem;
+            }
+
+            /* Side-by-side Hero Buttons */
+            .hero-cta-group {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+            }
+
+            .hero-cta-group .btn-primary,
+            .hero-cta-group .btn-secondary {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+                padding: 0.6rem 0.5rem;
+                font-size: 0.82rem;
+            }
+
+            /* Hero Snapshot Card */
+            .hero-snapshot-card {
+                padding: 1rem 0.85rem;
+                margin-top: 0.75rem;
+            }
+
+            .snapshot-header-row {
+                margin-bottom: 0.75rem;
+            }
+
+            .snapshot-header-row h2 {
+                font-size: 1.05rem;
+            }
+
+            .snapshot-point {
+                margin-bottom: 0.65rem;
+                padding-bottom: 0.65rem;
+            }
+
+            .snapshot-point h3 {
+                font-size: 0.88rem;
+                margin-bottom: 0.15rem;
+            }
+
+            .snapshot-point p {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+
+            .snapshot-compliance-note {
+                font-size: 0.78rem;
+                padding: 0.4rem 0.65rem;
+                margin-top: 0.75rem;
+            }
+
+            /* Section 2: Thesis - 2 Compact Cards per Row */
+            .thesis-editorial-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+
+            .thesis-editorial-col {
+                border: 1px solid var(--border-subtle);
+                border-radius: var(--radius-sm);
+                padding: 0.75rem 0.65rem;
+                background: #FFFFFF;
+                border-right: 1px solid var(--border-subtle);
+            }
+
+            .thesis-editorial-col:last-child {
+                grid-column: span 2;
+            }
+
+            .thesis-editorial-col h3 {
+                font-size: 0.88rem;
+                margin-bottom: 0.2rem;
+            }
+
+            .thesis-editorial-col p {
+                font-size: 0.78rem;
+                line-height: 1.4;
+            }
+
+            /* Section 3: Profit Policy */
+            .policy-card-layout {
+                padding: 1.15rem 0.85rem;
+                gap: 1rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .policy-text h3 {
+                font-size: 1.05rem;
+                margin-bottom: 0.35rem;
+            }
+
+            .policy-text p {
+                font-size: 0.82rem;
+                line-height: 1.45;
+                margin-bottom: 0.75rem;
+            }
+
+            .policy-points-list li {
+                font-size: 0.8rem;
+                margin-bottom: 0.45rem;
+                padding-right: 1.25rem;
+            }
+
+            /* Section 4: Calculator */
+            .calculator-card {
+                padding: 1rem 0.85rem;
+            }
+
+            .calc-input-row {
+                margin-bottom: 0.75rem;
+            }
+
+            .calc-label {
+                font-size: 0.82rem;
+            }
+
+            .input-wrapper input {
+                font-size: 1.15rem;
+                padding: 0.5rem 0.65rem;
+            }
+
+            .preset-chips-row {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.4rem;
+                margin-bottom: 0.85rem;
+            }
+
+            .preset-btn {
+                padding: 0.45rem 0.35rem;
+                font-size: 0.78rem;
+                text-align: center;
+            }
+
+            .calculator-results {
+                padding: 0.75rem;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+
+            .result-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.15rem;
+                border-bottom: 1px solid var(--border-subtle);
+                padding-bottom: 0.35rem;
+                margin-bottom: 0.35rem;
+            }
+
+            .result-row:last-child {
+                grid-column: span 2;
+                border-bottom: none;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            .row-label {
+                font-size: 0.78rem;
+            }
+
+            .row-label small {
+                display: none;
+            }
+
+            .row-num {
+                font-size: 1.05rem;
+            }
+
+            .calc-submit-btn {
+                padding: 0.65rem 0.85rem;
+                font-size: 0.82rem;
+                margin-top: 0.85rem;
+            }
+
+            /* Section 5: The 4 KPIs in 2x2 Grid */
+            .kpi-row-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.5rem !important;
+                margin: 0.85rem 0 !important;
+            }
+
+            .kpi-metric-box {
+                padding: 0.65rem 0.55rem !important;
+                border-radius: var(--radius-sm) !important;
+            }
+
+            .kpi-metric-box .metric-title {
+                font-size: 0.78rem !important;
+                margin-bottom: 0.15rem !important;
+                line-height: 1.2 !important;
+            }
+
+            .kpi-metric-box .metric-figure {
+                font-size: 1.15rem !important;
+                line-height: 1.1 !important;
+            }
+
+            .kpi-metric-box .metric-context {
+                font-size: 0.78rem !important;
+                margin-top: 0.15rem !important;
+                line-height: 1.2 !important;
+            }
+
+            /* Section 5: 100k Realized Proof Table */
+            .realized-proof-card {
+                padding: 0.85rem 0.75rem !important;
+                border-radius: var(--radius-md) !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .proof-card-header {
+                margin-bottom: 0.65rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+
+            .proof-card-header h3 {
+                font-size: 0.95rem !important;
+                margin-bottom: 0.2rem !important;
+            }
+
+            .proof-card-header .proof-period-tag {
+                font-size: 0.78rem !important;
+            }
+
+            .proof-compact-table th,
+            .proof-compact-table td {
+                padding: 0.45rem 0.35rem !important;
+            }
+
+            .proof-compact-table th:nth-child(3),
+            .proof-compact-table td:nth-child(3) {
+                display: none !important;
+            }
+
+            .pt-item-title {
+                font-size: 0.82rem !important;
+            }
+
+            .pt-item-sub {
+                font-size: 0.78rem !important;
+            }
+
+            .pt-val {
+                font-size: 0.88rem !important;
+            }
+
+            .pt-total-title {
+                font-size: 0.85rem !important;
+            }
+
+            .pt-total-sub {
+                font-size: 0.78rem !important;
+            }
+
+            .pt-total-val {
+                font-size: 1.05rem !important;
+            }
+
+            .verification-footer-bar {
+                padding: 0.65rem 0.75rem !important;
+                margin-bottom: 0.85rem !important;
+                font-size: 0.78rem !important;
+            }
+
+            .vf-check-icon {
+                width: 18px !important;
+                height: 18px !important;
+                font-size: 0.78rem !important;
+            }
+
+            /* Section 5: Audit Link Card */
+            .audit-link-card {
+                padding: 0.85rem 0.75rem !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 0.65rem !important;
+                margin-bottom: 0.85rem !important;
+            }
+
+            .audit-link-card h3 {
+                font-size: 0.95rem !important;
+            }
+
+            .audit-link-card p {
+                font-size: 0.78rem !important;
+                line-height: 1.4 !important;
+            }
+
+            .alc-button {
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 0.6rem 0.75rem !important;
+                font-size: 0.82rem !important;
+            }
+
+            .verification-explanation {
+                font-size: 0.78rem !important;
+                padding: 0.5rem 0.65rem !important;
+                line-height: 1.4 !important;
+            }
+
+            /* Section 6: Security Governance - 2 Cards per Row */
+            .security-editorial-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.5rem !important;
+            }
+
+            .security-editorial-col {
+                border: 1px solid var(--border-subtle) !important;
+                border-radius: var(--radius-sm) !important;
+                padding: 0.65rem 0.55rem !important;
+                background: #FFFFFF !important;
+            }
+
+            .security-editorial-col h3 {
+                font-size: 0.85rem !important;
+                margin-bottom: 0.15rem !important;
+            }
+
+            .security-editorial-col p {
+                font-size: 0.78rem !important;
+                line-height: 1.35 !important;
+            }
+
+            /* Section 7: Executives Row - Direct Calls */
+            .executives-row {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.65rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .executive-card {
+                padding: 1rem 0.65rem !important;
+            }
+
+            .executive-card h3 {
+                font-size: 1.02rem !important;
+                margin-bottom: 0.2rem !important;
+            }
+
+            .executive-card .exec-position {
+                font-size: 0.8rem !important;
+                margin-bottom: 0.85rem !important;
+            }
+
+            .btn-call {
+                padding: 0.65rem 0.45rem !important;
+                font-size: 0.86rem !important;
+                gap: 0.4rem !important;
+                width: 100% !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.25rem !important;
+            }
+        }
